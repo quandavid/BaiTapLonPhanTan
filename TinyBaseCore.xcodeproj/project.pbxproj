@@ -312,7 +312,7 @@
 		7E9279BC215FD90600089EFD = {
 			isa = PBXGroup;
 			children = (
-				7E9279C7215FD90700089EFD /* TinyBaseCore */,
+				7E9279C7215FD90700089EFD /* TinyCore */,
 				7E9279FD215FDA0E00089EFD /* App */,
 				7E9279C6215FD90700089EFD /* Products */,
 				4AD5DB7F35339E7B6196E7A5 /* Pods */,
@@ -328,7 +328,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7E9279C7215FD90700089EFD /* TinyBaseCore */ = {
+		7E9279C7215FD90700089EFD /* TinyCore */ = {
 			isa = PBXGroup;
 			children = (
 				7E3ABCB0216269F40033BB60 /* Request */,
@@ -340,7 +340,7 @@
 				7E9279EB215FD98700089EFD /* Event */,
 				7E9279DA215FD97F00089EFD /* Util */,
 			);
-			path = TinyBaseCore;
+			path = TinyCore;
 			sourceTree = "<group>";
 		};
 		7E9279DA215FD97F00089EFD /* Util */ = {
