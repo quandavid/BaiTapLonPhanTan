@@ -1,0 +1,6 @@
+framework module Pods_TinyBaseCore {
+  umbrella header "Pods-TinyBaseCore-umbrella.h"
+
+  export *
+  module * { export * }
+}
