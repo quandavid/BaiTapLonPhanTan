@@ -16,8 +16,7 @@ class HttpResponse: NSObject, NSCoding {
         if json == nil {
             return
         }
-//        data = json["data"]
-        data = json
+        data = json["data"]
     }
     
     func toDictionary() -> NSDictionary {
