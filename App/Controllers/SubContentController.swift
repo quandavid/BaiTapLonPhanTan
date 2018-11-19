@@ -66,7 +66,7 @@ class SubContentController: AppController {
     }
     
     func updateText(meetingId: Int, index: Int) {
-        meetingService.updateContent(content: contents[index], meetingId: meetingId, subcontentId: contents[index].numberId).subscribe(onNext: { [weak self] subcontents in
+        meetingService.updateContent(content: contents[index], meetingId: meetingId, subcontentId: contents[index].subId).subscribe(onNext: { [weak self] subcontents in
             guard let this = self else { return }
             this.getMeeting(meetingId: meetingId)
             }, onError: { [weak self] error in
