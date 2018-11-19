@@ -25,4 +25,16 @@ class MeetingController: AppController {
         }).disposed(by: disposeBag)
     }
     
+    func createNewMeeting(titleName: String) {
+        meetingService.createNewMeeting(titleName: titleName).subscribe(onNext: { [weak self] meeting in
+            guard let this = self else { return }
+            this.meetingList.append(meeting)
+            this.notifyObservers(.Meeting_createdNewMeeting)
+            }, onError: { [weak self] error in
+                guard let this = self else { return }
+                print(error)
+                this.notifyObservers(.C_ShowError)
+        }).disposed(by: disposeBag)
+    }
+    
 }

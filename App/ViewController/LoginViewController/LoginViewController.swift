@@ -83,7 +83,7 @@ class LoginViewController: AppViewController {
         switch command {
         case .Login_loginSuccess:
             if let userInfo = data as? UserModel {
-                standardUserDefaults.set(userInfo, forKey: kUserInfo)
+                StorageFactory.userStorage.save(userInfo)
                 self.showViewController(MeetingViewController.self)
             }
             break

@@ -14,7 +14,9 @@ class LoginService: AppService {
     
     func getUserData( email: String, password: String) -> Observable<UserModel> {
         return loginRequest.getUserData(email: email, password: password).flatMap { (response: HttpResponse) -> Observable<UserModel> in
-            standardUserDefaults.set((response.data)["token"], forKey: kAccessToken)
+            if let accessToken = response.data["token"].string {
+                standardUserDefaults.set(accessToken, forKey: kAccessToken)
+            }
             let userModel = UserModel(json: response.data)
             return Observable<UserModel>.create({ (subscribe)  in
                 subscribe.onNext(userModel)

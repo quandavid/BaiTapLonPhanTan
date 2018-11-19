@@ -20,7 +20,7 @@ enum EnvType: Int {
 
 class TestEnvironment: EnvironmentProtocol {
     var hostUrl: String {
-        return "http://devapi.jetfri.com/"
+        return "http://localhost:3000/api/"
     }
     
 }

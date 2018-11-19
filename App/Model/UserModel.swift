@@ -16,6 +16,10 @@ class UserModel: Object {
     @objc dynamic var email: String = ""
     @objc dynamic var password: String = ""
     
+    override static func primaryKey() -> String? {
+        return "userId"
+    }
+    
     convenience init(json: JSON) {
         self.init()
         if json.isEmpty {

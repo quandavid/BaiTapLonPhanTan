@@ -11,7 +11,8 @@ import RxSwift
 
 class LoginRequest: AppRequest {
     func getUserData( email: String, password: String) -> Observable<HttpResponse> {
-        let params : [String: Any] = ["email": email, "password": password]
-        return self.create(url: "login", options: params)
+        var params: [String: Any] = [:]
+        params[Constant.RepositoryParam.requestParams] = ["email": email, "password": password]
+        return self.create(url: "users/login", options: params)
     }
 }

@@ -9,13 +9,15 @@
 import UIKit
 
 class SubContentCell: AppTableViewCell {
+    var updatedText: ((_ text: String) -> ())?
+    
     @IBOutlet var authorName: UILabel!
     
     @IBOutlet var createTime: UILabel!
     
-    @IBOutlet var content: UILabel!
+    @IBOutlet var content: UITextView!
     
-    var subContent: SubContent! {
+    var subContent: SubContentModel! {
         didSet {
             self.authorName.text = subContent.author
             self.createTime.text = "\(subContent.startTime) - \(subContent.endTime)"
@@ -25,10 +27,18 @@ class SubContentCell: AppTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        content.numberOfLines = 0
-        content.sizeToFit()
+        content.delegate = self
         // Initialization code
     }
 
     
+}
+
+extension SubContentCell: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if let block = updatedText {
+            block(content.text)
+        }
+        content.resignFirstResponder()
+    }
 }

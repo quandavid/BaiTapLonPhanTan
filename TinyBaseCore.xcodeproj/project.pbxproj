@@ -28,7 +28,7 @@
 		7E388F6C218CE2F30081BDDB /* MeetingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E388F6A218CE2F30081BDDB /* MeetingCell.xib */; };
 		7E388F70218CE4C90081BDDB /* SubContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E388F6E218CE4C90081BDDB /* SubContentViewController.swift */; };
 		7E388F71218CE4C90081BDDB /* SubContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E388F6F218CE4C90081BDDB /* SubContentViewController.xib */; };
-		7E388F73218CE7910081BDDB /* SubContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E388F72218CE7910081BDDB /* SubContent.swift */; };
+		7E388F73218CE7910081BDDB /* SubContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E388F72218CE7910081BDDB /* SubContentModel.swift */; };
 		7E388F75218CE8AA0081BDDB /* SubContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E388F74218CE8AA0081BDDB /* SubContentController.swift */; };
 		7E388F79218CEC8E0081BDDB /* SubContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E388F77218CEC8E0081BDDB /* SubContentCell.swift */; };
 		7E388F7A218CEC8E0081BDDB /* SubContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E388F78218CEC8E0081BDDB /* SubContentCell.xib */; };
@@ -56,6 +56,9 @@
 		7E3ABCBA21626A2F0033BB60 /* AppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3ABCB921626A2F0033BB60 /* AppRequest.swift */; };
 		7E3ABCBC216270A90033BB60 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3ABCBB216270A90033BB60 /* HttpResponse.swift */; };
 		7E3ABCBF216272EA0033BB60 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3ABCBE216272EA0033BB60 /* RealmExtension.swift */; };
+		7E431AB62193BA0F00C420C3 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E431AB52193BA0F00C420C3 /* RoleModel.swift */; };
+		7E54A22E219048500027E8F0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E54A22D219048500027E8F0 /* StringExtension.swift */; };
+		7E54A230219052930027E8F0 /* SubContents.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E54A22F219052930027E8F0 /* SubContents.json */; };
 		7E6EF9A2216F41E900FC3522 /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EF9A1216F41E900FC3522 /* AppCollectionViewCell.swift */; };
 		7E9279C9215FD90700089EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9279C8215FD90700089EFD /* AppDelegate.swift */; };
 		7E9279CE215FD90700089EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9279CC215FD90700089EFD /* Main.storyboard */; };
@@ -107,7 +110,7 @@
 		7E388F6A218CE2F30081BDDB /* MeetingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingCell.xib; sourceTree = "<group>"; };
 		7E388F6E218CE4C90081BDDB /* SubContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubContentViewController.swift; sourceTree = "<group>"; };
 		7E388F6F218CE4C90081BDDB /* SubContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubContentViewController.xib; sourceTree = "<group>"; };
-		7E388F72218CE7910081BDDB /* SubContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubContent.swift; sourceTree = "<group>"; };
+		7E388F72218CE7910081BDDB /* SubContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubContentModel.swift; sourceTree = "<group>"; };
 		7E388F74218CE8AA0081BDDB /* SubContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubContentController.swift; sourceTree = "<group>"; };
 		7E388F77218CEC8E0081BDDB /* SubContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubContentCell.swift; sourceTree = "<group>"; };
 		7E388F78218CEC8E0081BDDB /* SubContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubContentCell.xib; sourceTree = "<group>"; };
@@ -135,6 +138,9 @@
 		7E3ABCB921626A2F0033BB60 /* AppRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRequest.swift; sourceTree = "<group>"; };
 		7E3ABCBB216270A90033BB60 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		7E3ABCBE216272EA0033BB60 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
+		7E431AB52193BA0F00C420C3 /* RoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleModel.swift; sourceTree = "<group>"; };
+		7E54A22D219048500027E8F0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		7E54A22F219052930027E8F0 /* SubContents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubContents.json; sourceTree = "<group>"; };
 		7E6EF9A1216F41E900FC3522 /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E9279C5215FD90700089EFD /* TinyBaseCore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyBaseCore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9279C8215FD90700089EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,7 +226,8 @@
 			children = (
 				7E2A9EA4218ACEE10054D409 /* UserModel.swift */,
 				7E388F62218CDE940081BDDB /* MeetingModel.swift */,
-				7E388F72218CE7910081BDDB /* SubContent.swift */,
+				7E388F72218CE7910081BDDB /* SubContentModel.swift */,
+				7E431AB52193BA0F00C420C3 /* RoleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				7E3ABCBE216272EA0033BB60 /* RealmExtension.swift */,
+				7E54A22D219048500027E8F0 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -482,6 +490,7 @@
 				7E9279CF215FD90900089EFD /* Assets.xcassets */,
 				7E9279D1215FD90900089EFD /* LaunchScreen.storyboard */,
 				7E9279D4215FD90900089EFD /* Info.plist */,
+				7E54A22F219052930027E8F0 /* SubContents.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -602,6 +611,7 @@
 				7E9279D0215FD90900089EFD /* Assets.xcassets in Resources */,
 				7E2A9E9B218ACEE10054D409 /* LoginViewController.xib in Resources */,
 				7E2A9EAA218ACEE10054D409 /* MeetingViewController.xib in Resources */,
+				7E54A230219052930027E8F0 /* SubContents.json in Resources */,
 				7E2A9E97218ACEC70054D409 /* TopLoginCell.xib in Resources */,
 				7E9279CE215FD90700089EFD /* Main.storyboard in Resources */,
 				7E2A9E95218ACEC70054D409 /* LoginCell.xib in Resources */,
@@ -706,9 +716,11 @@
 				7EFC33D1216CC0500017C5A3 /* RequestFactory.swift in Sources */,
 				7E2A9EA0218ACEE10054D409 /* LoginService.swift in Sources */,
 				7E927A18215FDA6500089EFD /* AppConfig.swift in Sources */,
+				7E431AB62193BA0F00C420C3 /* RoleModel.swift in Sources */,
 				7E388FDB218CF2F50081BDDB /* BaseController.swift in Sources */,
 				7E2A9EAC218ACEE10054D409 /* MeetingController.swift in Sources */,
 				7E2A9E9E218ACEE10054D409 /* LoginController.swift in Sources */,
+				7E54A22E219048500027E8F0 /* StringExtension.swift in Sources */,
 				7E388FD5218CF2F50081BDDB /* BaseTBCell.swift in Sources */,
 				7E927A31215FDE1900089EFD /* AlertManage.swift in Sources */,
 				7E927A16215FDA6500089EFD /* AppConstant.swift in Sources */,
@@ -727,7 +739,7 @@
 				7E388F6B218CE2F30081BDDB /* MeetingCell.swift in Sources */,
 				7E388FD4218CF2F50081BDDB /* BaseService.swift in Sources */,
 				7E388F79218CEC8E0081BDDB /* SubContentCell.swift in Sources */,
-				7E388F73218CE7910081BDDB /* SubContent.swift in Sources */,
+				7E388F73218CE7910081BDDB /* SubContentModel.swift in Sources */,
 				7E3ABCB621626A1F0033BB60 /* AppService.swift in Sources */,
 				7E2A9E94218ACEC70054D409 /* TopLoginCell.swift in Sources */,
 				7E927A33215FDE5600089EFD /* FDefined.swift in Sources */,

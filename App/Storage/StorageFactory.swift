@@ -9,5 +9,9 @@
 import Foundation
 
 class StorageFactory {
+    static let userStorage = UserStorage()
+}
+
+class UserStorage: BaseStorage<UserModel> {
     
 }

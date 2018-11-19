@@ -70,19 +70,59 @@ public class BaseRequest {
     }
     
     // MARK: Configure Request
-    func executeRequest( method: HTTPMethod, url: String, headers: [String: Any], params: [String: Any], _ completionHandler:@escaping ((DefaultDataResponse) -> ())) {
-        var requestParams = createDefaultParams()
-        for (key, value) in params {
-            requestParams[key] = value
-        }
+    func executeRequest( method: HTTPMethod, url: String, headers: [String: Any], params: [String: Any], _ completionHandler:@escaping ((DataResponse<Any>) -> ())) {
+//        var requestParams = createDefaultParams()
+//        for (key, value) in params {
+//            requestParams[key] = value
+//        }
         var requestHeaders = createDefaultHeaders()
         for (key, val) in headers {
             requestHeaders[key] = val as? String ?? ""
         }
+        
+        let headers: HTTPHeaders = ["Accept": "application/json"]
         BLogInfo(url)
-        BLogInfo(requestParams.description)
+//        BLogInfo(requestParams.description)
 
-        Alamofire.request(url, method: method, parameters: requestParams, headers: requestHeaders).response(completionHandler: completionHandler)
+//        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL,cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10.0)
+//        request.httpMethod = method.rawValue
+//
+//        request.timeoutInterval = TimeInterval(kTimeOut)
+//
+//        let session = URLSession.shared
+//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+//            if let responseHTTP = response as? HTTPURLResponse {
+//                if responseHTTP.statusCode == 200 || responseHTTP.statusCode == 201 {
+//                    if (error != nil) {
+//                        print(error!)
+//                        completion(false,nil)
+//                    } else {
+//                        var arrRecentSearch = [String]()
+//                        let json = JSON(data!)
+//
+//                        for title in json["products"].arrayValue {
+//                            arrRecentSearch.append(title["title"].stringValue)
+//                        }
+//                        completion(true, arrRecentSearch)
+//                    }
+//                } else {
+//                    completion(false , nil)
+//                }
+//            } else {
+//                completion(false , nil)
+//            }
+//
+//        })
+//
+//        dataTask.resume()
+        
+        if method == .put || method == .post {
+            let _ = Alamofire.request(url, method: method, parameters: params,encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: completionHandler)
+        } else {
+            let _ = Alamofire.request(url, method: method, parameters: params,encoding: URLEncoding(destination: .methodDependent), headers: headers).responseJSON(completionHandler: completionHandler)
+        }
+        
+//        let _ = Alamofire.request(url, method: method, parameters: params,encoding: URLEncoding(destination: .methodDependent), headers: headers).responseJSON(completionHandler: completionHandler)
         
     }
     
@@ -96,16 +136,17 @@ public class BaseRequest {
         })
     }
    
-    func processResponse(response: DefaultDataResponse, subscribe: AnyObserver<HttpResponse>) {
+    func processResponse(response: DataResponse<Any>, subscribe: AnyObserver<HttpResponse>) {
         if let error = response.error {
-            BLogError(error.localizedDescription)
+            print(error)
             subscribe.on(.error(error))
         } else {
-            let data = response.data
-            let jsonResponse = HttpResponse(fromJson: JSON(data!))
-         
-            subscribe.onNext(jsonResponse)
-
+            if let  json = response.result.value {
+                print(json)
+                let jsonResponse = HttpResponse(fromJson: JSON(json))
+                subscribe.onNext(jsonResponse)
+            }
+            
         }
         subscribe.onCompleted()
     }

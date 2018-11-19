@@ -21,9 +21,11 @@ import Foundation
     
     //MARK: Meeting page
     Meeting_getAllSucess,
+    Meeting_createdNewMeeting,
     
     //MARK: SubContent page
-    SubContent_getDataSucess,
+    SubContent_gotData,
+    SubContent_invited,
     //MARK: Home page
     Home_GotData
 }
