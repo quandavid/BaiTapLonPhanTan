@@ -17,6 +17,8 @@ class SubContentModel: Object {
     @objc dynamic var content: String = ""
     @objc dynamic var startTime: String = ""
     @objc dynamic var endTime: String = ""
+    @objc dynamic var isFlig: Int = 0
+    @objc dynamic var isFull: Int = 0
     
     convenience init (json: JSON) {
         self.init()
@@ -30,11 +32,13 @@ class SubContentModel: Object {
         self.content = json["content"].stringValue
         self.startTime = json["start_time"].stringValue
         self.endTime = json["end_time"].stringValue
+        self.isFlig = json["is_flig"].intValue
+        self.isFull = json["is_full"].intValue
     }
     
     func convertToDictionary() -> [String: Any] {
         var dic: [String: Any] = [:]
-        dic["id"] = self.subId
+//        dic["id"] = self.subId
         dic["number_id"] = self.numberId
         dic["author"] = self.author
         dic["content"] = self.content

@@ -21,6 +21,14 @@
 		7E2A9EA9218ACEE10054D409 /* MeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A9EA7218ACEE10054D409 /* MeetingViewController.swift */; };
 		7E2A9EAA218ACEE10054D409 /* MeetingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2A9EA8218ACEE10054D409 /* MeetingViewController.xib */; };
 		7E2A9EAC218ACEE10054D409 /* MeetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A9EAB218ACEE10054D409 /* MeetingController.swift */; };
+		7E2F641121A574D600A9547A /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2F640F21A574D500A9547A /* ImportViewController.swift */; };
+		7E2F641221A574D600A9547A /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2F641021A574D500A9547A /* ImportViewController.xib */; };
+		7E2F641621A5798200A9547A /* ImportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2F641421A5798200A9547A /* ImportCell.swift */; };
+		7E2F641721A5798200A9547A /* ImportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2F641521A5798200A9547A /* ImportCell.xib */; };
+		7E2F641B21A57BA500A9547A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2F641921A57BA500A9547A /* PreviewViewController.swift */; };
+		7E2F641C21A57BA500A9547A /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2F641A21A57BA500A9547A /* PreviewViewController.xib */; };
+		7E2F642021A57C9D00A9547A /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2F641E21A57C9D00A9547A /* PreviewCell.swift */; };
+		7E2F642121A57C9D00A9547A /* PreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2F641F21A57C9D00A9547A /* PreviewCell.xib */; };
 		7E388F63218CDE940081BDDB /* MeetingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E388F62218CDE940081BDDB /* MeetingModel.swift */; };
 		7E388F65218CDF260081BDDB /* MeetingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E388F64218CDF260081BDDB /* MeetingRequest.swift */; };
 		7E388F67218CDFD00081BDDB /* MeetingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E388F66218CDFD00081BDDB /* MeetingService.swift */; };
@@ -103,6 +111,14 @@
 		7E2A9EA7218ACEE10054D409 /* MeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewController.swift; sourceTree = "<group>"; };
 		7E2A9EA8218ACEE10054D409 /* MeetingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingViewController.xib; sourceTree = "<group>"; };
 		7E2A9EAB218ACEE10054D409 /* MeetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingController.swift; sourceTree = "<group>"; };
+		7E2F640F21A574D500A9547A /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
+		7E2F641021A574D500A9547A /* ImportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportViewController.xib; sourceTree = "<group>"; };
+		7E2F641421A5798200A9547A /* ImportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportCell.swift; sourceTree = "<group>"; };
+		7E2F641521A5798200A9547A /* ImportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportCell.xib; sourceTree = "<group>"; };
+		7E2F641921A57BA500A9547A /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		7E2F641A21A57BA500A9547A /* PreviewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
+		7E2F641E21A57C9D00A9547A /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
+		7E2F641F21A57C9D00A9547A /* PreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewCell.xib; sourceTree = "<group>"; };
 		7E388F62218CDE940081BDDB /* MeetingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingModel.swift; sourceTree = "<group>"; };
 		7E388F64218CDF260081BDDB /* MeetingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingRequest.swift; sourceTree = "<group>"; };
 		7E388F66218CDFD00081BDDB /* MeetingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingService.swift; sourceTree = "<group>"; };
@@ -239,6 +255,42 @@
 				7E2A9EA8218ACEE10054D409 /* MeetingViewController.xib */,
 			);
 			path = MeetingViewController;
+			sourceTree = "<group>";
+		};
+		7E2F640E21A574AD00A9547A /* ImportViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E2F640F21A574D500A9547A /* ImportViewController.swift */,
+				7E2F641021A574D500A9547A /* ImportViewController.xib */,
+			);
+			path = ImportViewController;
+			sourceTree = "<group>";
+		};
+		7E2F641321A5796300A9547A /* importCell */ = {
+			isa = PBXGroup;
+			children = (
+				7E2F641421A5798200A9547A /* ImportCell.swift */,
+				7E2F641521A5798200A9547A /* ImportCell.xib */,
+			);
+			path = importCell;
+			sourceTree = "<group>";
+		};
+		7E2F641821A57B7E00A9547A /* PreviewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E2F641921A57BA500A9547A /* PreviewViewController.swift */,
+				7E2F641A21A57BA500A9547A /* PreviewViewController.xib */,
+			);
+			path = PreviewViewController;
+			sourceTree = "<group>";
+		};
+		7E2F641D21A57C8400A9547A /* PreviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7E2F641E21A57C9D00A9547A /* PreviewCell.swift */,
+				7E2F641F21A57C9D00A9547A /* PreviewCell.xib */,
+			);
+			path = PreviewCell;
 			sourceTree = "<group>";
 		};
 		7E388F68218CE2CF0081BDDB /* Meeting */ = {
@@ -432,6 +484,8 @@
 		7E9279FE215FDA2200089EFD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7E2F641821A57B7E00A9547A /* PreviewViewController */,
+				7E2F640E21A574AD00A9547A /* ImportViewController */,
 				7E388F6D218CE4A90081BDDB /* SubContentViewController */,
 				7E2A9EA6218ACEE10054D409 /* MeetingViewController */,
 				7E2A9E98218ACEE10054D409 /* LoginViewController */,
@@ -453,6 +507,8 @@
 		7E927A06215FDA5D00089EFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7E2F641D21A57C8400A9547A /* PreviewCell */,
+				7E2F641321A5796300A9547A /* importCell */,
 				7E388F76218CEC6A0081BDDB /* SubContent */,
 				7E388F68218CE2CF0081BDDB /* Meeting */,
 				7E2A9E8F218ACEC70054D409 /* Login */,
@@ -605,16 +661,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E388F7A218CEC8E0081BDDB /* SubContentCell.xib in Resources */,
+				7E2F642121A57C9D00A9547A /* PreviewCell.xib in Resources */,
 				7E9279D3215FD90900089EFD /* LaunchScreen.storyboard in Resources */,
+				7E2F641721A5798200A9547A /* ImportCell.xib in Resources */,
 				7E388F71218CE4C90081BDDB /* SubContentViewController.xib in Resources */,
 				7E388F6C218CE2F30081BDDB /* MeetingCell.xib in Resources */,
 				7E9279D0215FD90900089EFD /* Assets.xcassets in Resources */,
 				7E2A9E9B218ACEE10054D409 /* LoginViewController.xib in Resources */,
+				7E2F641C21A57BA500A9547A /* PreviewViewController.xib in Resources */,
 				7E2A9EAA218ACEE10054D409 /* MeetingViewController.xib in Resources */,
 				7E54A230219052930027E8F0 /* SubContents.json in Resources */,
 				7E2A9E97218ACEC70054D409 /* TopLoginCell.xib in Resources */,
 				7E9279CE215FD90700089EFD /* Main.storyboard in Resources */,
 				7E2A9E95218ACEC70054D409 /* LoginCell.xib in Resources */,
+				7E2F641221A574D600A9547A /* ImportViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +764,7 @@
 				7E927A01215FDA2200089EFD /* AppViewController.swift in Sources */,
 				7E927A35215FDE7000089EFD /* EnvironmentManage.swift in Sources */,
 				7E388FCF218CF2F50081BDDB /* UIColorExtension.swift in Sources */,
+				7E2F641621A5798200A9547A /* ImportCell.swift in Sources */,
 				7E2A9EA5218ACEE10054D409 /* UserModel.swift in Sources */,
 				7E927A05215FDA2E00089EFD /* StorageFactory.swift in Sources */,
 				7EFC33CA216CBCD10017C5A3 /* HomeService.swift in Sources */,
@@ -716,6 +777,8 @@
 				7EFC33D1216CC0500017C5A3 /* RequestFactory.swift in Sources */,
 				7E2A9EA0218ACEE10054D409 /* LoginService.swift in Sources */,
 				7E927A18215FDA6500089EFD /* AppConfig.swift in Sources */,
+				7E2F641B21A57BA500A9547A /* PreviewViewController.swift in Sources */,
+				7E2F642021A57C9D00A9547A /* PreviewCell.swift in Sources */,
 				7E431AB62193BA0F00C420C3 /* RoleModel.swift in Sources */,
 				7E388FDB218CF2F50081BDDB /* BaseController.swift in Sources */,
 				7E2A9EAC218ACEE10054D409 /* MeetingController.swift in Sources */,
@@ -731,6 +794,7 @@
 				7E388FCD218CF2F50081BDDB /* BLog.swift in Sources */,
 				7E388F63218CDE940081BDDB /* MeetingModel.swift in Sources */,
 				7E9279C9215FD90700089EFD /* AppDelegate.swift in Sources */,
+				7E2F641121A574D600A9547A /* ImportViewController.swift in Sources */,
 				7E2A9E9C218ACEE10054D409 /* LoginViewController.swift in Sources */,
 				7E388FCC218CF2F50081BDDB /* Constant.swift in Sources */,
 				7E388FDA218CF2F50081BDDB /* ControllerManager.swift in Sources */,

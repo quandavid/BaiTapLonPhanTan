@@ -83,24 +83,24 @@ class SubContentViewController: AppViewController {
             super.update(command, data: data)
         }
     }
-    @IBAction func test1Action(_ sender: Any) {
-        subContentController.readTextFromFile(textName: "SubContents") { (status, string) in
-            if status {
-                self.previewTextView.text = string
-                DispatchQueue.main.async {
-                    self.preview.isHidden = false
-                }
-            }
-        }
-    }
     
     @IBAction func pushAction(_ sender: Any) {
         self.subContentController.parseTextToObjects(textName: "SubContents") { (status, subcontents) in
             if status {
-                self.subContentController.pushTextToSystem(contents: subcontents ?? [], meetingId: self.meetingId)
+                DispatchQueue.main.async {
+                    self.subContentController.pushTextToSystem(contents: subcontents ?? [], meetingId: self.meetingId)
+                }
+                
             }
         }
     }
+    
+    
+    @IBAction func importAction(_ sender: Any) {
+        let importVC = ImportViewController()
+        self.navigationController?.pushViewController(importVC, animated: true)
+    }
+    
     
     @IBAction func cancelAction(_ sender: Any) {
         self.preview.isHidden = true
@@ -150,7 +150,7 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 130
     }
     
     

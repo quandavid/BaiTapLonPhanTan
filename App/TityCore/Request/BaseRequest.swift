@@ -70,85 +70,72 @@ public class BaseRequest {
     }
     
     // MARK: Configure Request
-    func executeRequest( method: HTTPMethod, url: String, headers: [String: Any], params: [String: Any], _ completionHandler:@escaping ((DataResponse<Any>) -> ())) {
+    func executeRequest( method: HTTPMethod, url: String, headers: [String: Any], params: [String: Any], _ completionHandler:@escaping (Data?, URLResponse?, Error?) -> Void) {
 //        var requestParams = createDefaultParams()
 //        for (key, value) in params {
 //            requestParams[key] = value
 //        }
-        var requestHeaders = createDefaultHeaders()
-        for (key, val) in headers {
-            requestHeaders[key] = val as? String ?? ""
+//        var requestHeaders = createDefaultHeaders()
+//        for (key, val) in headers {
+//            requestHeaders[key] = val as? String ?? ""
+//        }
+        
+        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        let headers = [
+            "Content-Type": "application/json"
+        ]
+        
+        
+        if method == .post || method == .put {
+            let postData = try! JSONSerialization.data(withJSONObject: params, options: [])
+            request.httpBody = postData as Data
         }
         
-        let headers: HTTPHeaders = ["Accept": "application/json"]
-        BLogInfo(url)
-//        BLogInfo(requestParams.description)
-
-//        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL,cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10.0)
-//        request.httpMethod = method.rawValue
-//
-//        request.timeoutInterval = TimeInterval(kTimeOut)
-//
-//        let session = URLSession.shared
-//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//            if let responseHTTP = response as? HTTPURLResponse {
-//                if responseHTTP.statusCode == 200 || responseHTTP.statusCode == 201 {
-//                    if (error != nil) {
-//                        print(error!)
-//                        completion(false,nil)
-//                    } else {
-//                        var arrRecentSearch = [String]()
-//                        let json = JSON(data!)
-//
-//                        for title in json["products"].arrayValue {
-//                            arrRecentSearch.append(title["title"].stringValue)
-//                        }
-//                        completion(true, arrRecentSearch)
-//                    }
-//                } else {
-//                    completion(false , nil)
-//                }
-//            } else {
-//                completion(false , nil)
-//            }
-//
-//        })
-//
-//        dataTask.resume()
+        request.httpMethod = method.rawValue
+        request.allHTTPHeaderFields = headers
+       
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: completionHandler)
         
-        if method == .put || method == .post {
-            let _ = Alamofire.request(url, method: method, parameters: params,encoding: JSONEncoding.default, headers: headers).responseJSON(completionHandler: completionHandler)
-        } else {
-            let _ = Alamofire.request(url, method: method, parameters: params,encoding: URLEncoding(destination: .methodDependent), headers: headers).responseJSON(completionHandler: completionHandler)
-        }
+        dataTask.resume()
         
-//        let _ = Alamofire.request(url, method: method, parameters: params,encoding: URLEncoding(destination: .methodDependent), headers: headers).responseJSON(completionHandler: completionHandler)
+//        let _ = Alamofire.request(url, method: method, parameters: params,encoding: URLEncoding.default, headers: headers).responseData(completionHandler: completionHandler)
         
     }
     
     func createResponseObservable(method: HTTPMethod, url: String, headers: [String: Any], params: [String: Any]) -> Observable<HttpResponse> {
         return Observable<HttpResponse>.create({subscribe in
             let urlRequest = "\(FDefined.hostUrl)\(url)"
-            self.executeRequest(method: method, url: urlRequest, headers: headers, params: params, {response in
-                self.processResponse(response: response, subscribe: subscribe)
+            self.executeRequest(method: method, url: urlRequest, headers: headers, params: params, { (data, response, error) in
+                if (error != nil) {
+                    subscribe.on(.error(error!))
+                } else {
+                    if let json = data {
+                        let jsonResponse = HttpResponse(fromJson: JSON(json))
+                        subscribe.onNext(jsonResponse)
+                        subscribe.onCompleted()
+                    }
+                }
             })
             return Disposables.create()
         })
     }
    
-    func processResponse(response: DataResponse<Any>, subscribe: AnyObserver<HttpResponse>) {
-        if let error = response.error {
-            print(error)
-            subscribe.on(.error(error))
-        } else {
-            if let  json = response.result.value {
-                print(json)
-                let jsonResponse = HttpResponse(fromJson: JSON(json))
-                subscribe.onNext(jsonResponse)
-            }
-            
-        }
-        subscribe.onCompleted()
-    }
+//    func processResponse(response:  (Data?, URLResponse?, Error?) -> Void, subscribe: AnyObserver<HttpResponse>) {
+//        if let error = response.error {
+//            print(error)
+//            subscribe.on(.error(error))
+//        } else {
+//            if let  json = response.data {
+//                print(json)
+//                let jsonResponse = HttpResponse(fromJson: JSON(json))
+//                subscribe.onNext(jsonResponse)
+//            }
+//
+//        }
+//        subscribe.onCompleted()
+//    }
     
 }

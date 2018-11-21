@@ -12,16 +12,14 @@ import RxSwift
 class MeetingRequest: AppRequest {
     func getMeetingList() -> Observable<HttpResponse> {
         let token = standardUserDefaults.string(forKey: kAccessToken)!
-        var params : [String: Any] = [:]
-        params[Constant.RepositoryParam.requestParams] = ["token": token]
-        return self.getAll(url: "meetings", options: params)
+        let params : [String: Any] = [:]
+        return self.getAll(url: "meetings?token=\(token)", options: params)
     }
     
     func getOneMeeting(meetingId: Int) -> Observable<HttpResponse> {
         let token = standardUserDefaults.string(forKey: kAccessToken)!
-        var params : [String: Any] = [:]
-        params[Constant.RepositoryParam.requestParams] = ["token": token]
-        return self.getAll(url: "text_processing/\(meetingId)", options: params)
+        let params : [String: Any] = [:]
+        return self.getAll(url: "text_processing/\(meetingId)?token=\(token)", options: params)
     }
     
     func createNewMeeting(titleName: String) -> Observable<HttpResponse> {
