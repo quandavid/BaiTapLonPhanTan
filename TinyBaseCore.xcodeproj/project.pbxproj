@@ -91,6 +91,8 @@
 		7E927A31215FDE1900089EFD /* AlertManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E927A30215FDE1900089EFD /* AlertManage.swift */; };
 		7E927A33215FDE5600089EFD /* FDefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E927A32215FDE5600089EFD /* FDefined.swift */; };
 		7E927A35215FDE7000089EFD /* EnvironmentManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E927A34215FDE7000089EFD /* EnvironmentManage.swift */; };
+		7EB4EBAC21A90FD6005B35C6 /* ResolveConfligViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4EBAA21A90FD6005B35C6 /* ResolveConfligViewController.swift */; };
+		7EB4EBAD21A90FD6005B35C6 /* ResolveConfligViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB4EBAB21A90FD6005B35C6 /* ResolveConfligViewController.xib */; };
 		7EFC33BA216C97320017C5A3 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC33B9216C97320017C5A3 /* AppController.swift */; };
 		7EFC33BC216C9A8D0017C5A3 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC33BB216C9A8D0017C5A3 /* ControllerFactory.swift */; };
 		7EFC33C1216CAABA0017C5A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC33BF216CAABA0017C5A3 /* HomeViewController.swift */; };
@@ -187,6 +189,8 @@
 		7E927A30215FDE1900089EFD /* AlertManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertManage.swift; sourceTree = "<group>"; };
 		7E927A32215FDE5600089EFD /* FDefined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDefined.swift; sourceTree = "<group>"; };
 		7E927A34215FDE7000089EFD /* EnvironmentManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentManage.swift; sourceTree = "<group>"; };
+		7EB4EBAA21A90FD6005B35C6 /* ResolveConfligViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveConfligViewController.swift; sourceTree = "<group>"; };
+		7EB4EBAB21A90FD6005B35C6 /* ResolveConfligViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResolveConfligViewController.xib; sourceTree = "<group>"; };
 		7EFC33B9216C97320017C5A3 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		7EFC33BB216C9A8D0017C5A3 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
 		7EFC33BF216CAABA0017C5A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -493,6 +497,7 @@
 		7E9279FE215FDA2200089EFD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7EB4EBA921A90E10005B35C6 /* ResolveConfligViewController */,
 				7E2F641821A57B7E00A9547A /* PreviewViewController */,
 				7E2F640E21A574AD00A9547A /* ImportViewController */,
 				7E388F6D218CE4A90081BDDB /* SubContentViewController */,
@@ -590,6 +595,15 @@
 				7E927A11215FDA6500089EFD /* Command.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		7EB4EBA921A90E10005B35C6 /* ResolveConfligViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7EB4EBAA21A90FD6005B35C6 /* ResolveConfligViewController.swift */,
+				7EB4EBAB21A90FD6005B35C6 /* ResolveConfligViewController.xib */,
+			);
+			path = ResolveConfligViewController;
 			sourceTree = "<group>";
 		};
 		7EFC33B8216C971D0017C5A3 /* Controllers */ = {
@@ -690,6 +704,7 @@
 				7E9279CE215FD90700089EFD /* Main.storyboard in Resources */,
 				7E2A9E95218ACEC70054D409 /* LoginCell.xib in Resources */,
 				7E2F641221A574D600A9547A /* ImportViewController.xib in Resources */,
+				7EB4EBAD21A90FD6005B35C6 /* ResolveConfligViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +800,7 @@
 				7E927A01215FDA2200089EFD /* AppViewController.swift in Sources */,
 				7E927A35215FDE7000089EFD /* EnvironmentManage.swift in Sources */,
 				7E388FCF218CF2F50081BDDB /* UIColorExtension.swift in Sources */,
+				7EB4EBAC21A90FD6005B35C6 /* ResolveConfligViewController.swift in Sources */,
 				7E2F641621A5798200A9547A /* ImportCell.swift in Sources */,
 				7E2A9EA5218ACEE10054D409 /* UserModel.swift in Sources */,
 				7E927A05215FDA2E00089EFD /* StorageFactory.swift in Sources */,

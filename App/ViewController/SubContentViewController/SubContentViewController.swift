@@ -154,6 +154,9 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.subContentController.contents[indexPath.row].flag == 1 {
+            return 85
+        }
         return 130
     }
     
