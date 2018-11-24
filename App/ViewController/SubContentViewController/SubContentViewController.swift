@@ -26,6 +26,7 @@ class SubContentViewController: AppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         subContentController = ControllerFactory.createController(type: SubContentController.self, for: self) as? SubContentController
         initComponent()
         // Do any additional setup after loading the view.
@@ -58,6 +59,8 @@ class SubContentViewController: AppViewController {
     func initTableView() {
         self.subContentTableView.delegate = self
         self.subContentTableView.dataSource = self
+        self.subContentTableView.showsVerticalScrollIndicator = false
+        
     }
     
     func initTextView() {
@@ -98,6 +101,7 @@ class SubContentViewController: AppViewController {
     
     @IBAction func importAction(_ sender: Any) {
         let importVC = ImportViewController()
+        importVC.meetingId = self.meetingId
         self.navigationController?.pushViewController(importVC, animated: true)
     }
     
@@ -111,7 +115,7 @@ class SubContentViewController: AppViewController {
     }
     
     @IBAction func handleBackAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func handleOkInvite(_ sender: Any) {

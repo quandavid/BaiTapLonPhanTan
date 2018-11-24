@@ -10,8 +10,9 @@ import UIKit
 
 class ImportViewController: AppViewController {
 
-    var fileList = ["file 1","file 2","file 3","file 4","file 5","file 6","file 7"]
+    var fileList = ["file 1","file 2","file 3","file 4"]
     var subContentController: SubContentController!
+    var meetingId: Int = 0
     @IBOutlet var importTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +54,12 @@ extension ImportViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        self.subContentController.parseTextToObjects(textName: "SubContents") { (status, subcontents) in
+        self.subContentController.parseTextToObjects(textName: "SubContents\(indexPath.row + 1)") { (status, subcontents) in
             if status {
                 DispatchQueue.main.async {
                     if let contents = subcontents {
                         let previewVC = PreviewViewController.init(nibName: "PreviewViewController", bundle: nil)
+                        previewVC.meetingId = self.meetingId
                         previewVC.subContentList = contents
                         self.navigationController?.pushViewController(previewVC, animated: true)
                     }

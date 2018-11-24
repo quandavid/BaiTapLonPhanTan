@@ -16,6 +16,7 @@ target 'TinyBaseCore' do
   pod 'RxCocoa',    '~> 4.0'
   #Database
   pod 'SwiftyJSON'
+  pod 'FoldingCell'
   pod 'RealmSwift'
   
   #Language

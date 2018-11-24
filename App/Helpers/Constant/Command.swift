@@ -26,6 +26,7 @@ import Foundation
     //MARK: SubContent page
     SubContent_gotData,
     SubContent_invited,
+    Preview_PushTextSuccess,
     //MARK: Home page
     Home_GotData
 }

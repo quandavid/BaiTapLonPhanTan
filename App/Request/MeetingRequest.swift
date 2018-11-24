@@ -19,7 +19,7 @@ class MeetingRequest: AppRequest {
     func getOneMeeting(meetingId: Int) -> Observable<HttpResponse> {
         let token = standardUserDefaults.string(forKey: kAccessToken)!
         let params : [String: Any] = [:]
-        return self.getAll(url: "text_processing/\(meetingId)?token=\(token)", options: params)
+        return self.getAll(url: "sub_contents/\(meetingId)?token=\(token)", options: params)
     }
     
     func createNewMeeting(titleName: String) -> Observable<HttpResponse> {
@@ -38,15 +38,27 @@ class MeetingRequest: AppRequest {
     
     func mergeTextToSystem( contents: [SubContentModel], meetingId: Int) -> Observable<HttpResponse> {
         let token = standardUserDefaults.string(forKey: kAccessToken)!
+        var contentDict: [[String: Any]]!
         var params : [String: Any] = [:]
-        params[Constant.RepositoryParam.requestParams] = ["content": contents.map { $0.convertToDictionary() }]
-        return self.create(url: "text_precessing/\(meetingId)?token=\(token)", options: params)
+        var type = 0
+        if contents.first?.content == "" {
+            type = 0
+            contentDict = contents.map { $0.convertToDictionaryLeakContent() }
+        } else if contents.first?.author == "" {
+            type = 1
+            contentDict = contents.map { $0.convertToDictionaryLeakAuthor() }
+        } else {
+            type = 2
+            contentDict = contents.map { $0.convertToDictionaryFull() }
+        }
+        params[Constant.RepositoryParam.requestParams] = ["content": contentDict, "type": type]
+        return self.create(url: "sub_contents/\(meetingId)?token=\(token)", options: params)
     }
     
     func updateContent( content: SubContentModel, meetingId: Int, subcontentId: Int) -> Observable<HttpResponse> {
         let token = standardUserDefaults.string(forKey: kAccessToken)!
         var params : [String: Any] = [:]
         params[Constant.RepositoryParam.requestParams] = ["author": content.author, "content": content.content, "start_time": content.startTime, "end_time": content.endTime]
-        return self.update(url: "text_precessing/\(meetingId)/\(subcontentId)?token=\(token)", options: params)
+        return self.update(url: "sub_contents/\(meetingId)/\(subcontentId)?token=\(token)", options: params)
     }
 }

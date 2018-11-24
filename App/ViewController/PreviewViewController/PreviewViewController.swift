@@ -10,10 +10,14 @@ import UIKit
 
 class PreviewViewController: AppViewController {
 
+    
     @IBOutlet var previewTableView: UITableView!
     var subContentList: [SubContentModel]!
+    var meetingId: Int = 0
+    var subContentController: SubContentController!
     override func viewDidLoad() {
         super.viewDidLoad()
+        subContentController = ControllerFactory.createController(type: SubContentController.self, for: self) as? SubContentController
         initComponent()
         
         // Do any additional setup after loading the view.
@@ -37,9 +41,19 @@ class PreviewViewController: AppViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
     @IBAction func pushAction(_ sender: Any) {
-        
+        subContentController.pushTextToSystem(contents: subContentList, meetingId: self.meetingId)
+    }
+    
+    override func update(_ command: Command, data: Any?) {
+        switch command {
+        case .Preview_PushTextSuccess:
+            UtilManage.showAlert(message: "update successfully!", type: .ok) { (alertVC, button) in
+        self.navigationController?.popToRootViewController(animated: true)
+            }
+        default:
+            super.update(command, data: data)
+        }
     }
     
 }

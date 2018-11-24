@@ -99,7 +99,7 @@ extension MeetingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let meetingInfo = self.meetingController.meetingList[indexPath.row]
-        self.pushViewController(SubContentViewController.self, data: ["meetingInfo" : meetingInfo])
+        self.showViewController(SubContentViewController.self, data: ["meetingInfo" : meetingInfo])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

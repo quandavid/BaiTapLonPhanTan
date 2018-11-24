@@ -17,7 +17,7 @@ class SubContentController: AppController {
     func getMeeting(meetingId: Int) {
         meetingService.getOneMeeting(meetingId: meetingId).subscribe(onNext: {[weak self] data in
             guard let this = self else { return }
-            this.contents = data
+            this.contents = data.filter { $0.isFull == 1 }
             this.notifyObservers(.SubContent_gotData)
             }, onError: {[weak self] (error) in
                 guard let this = self else { return }
@@ -58,7 +58,8 @@ class SubContentController: AppController {
     func pushTextToSystem(contents: [SubContentModel], meetingId: Int) {
         meetingService.mergeContentToSystem(contens: contents, meetingId: meetingId).subscribe(onNext: { [weak self] subcontents in
             guard let this = self else { return }
-            this.getMeeting(meetingId: meetingId)
+//            this.getMeeting(meetingId: meetingId)
+            this.notifyObservers(.Preview_PushTextSuccess)
             }, onError: { [weak self] error in
                 guard let this = self else { return }
                 this.notifyObservers(.C_ShowError, data: error)
