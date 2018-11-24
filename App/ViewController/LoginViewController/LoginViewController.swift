@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SocketIO
 
 class LoginViewController: AppViewController {
     //MARK: Outlet
@@ -22,8 +21,6 @@ class LoginViewController: AppViewController {
     var isRegisted: Bool = false
     var isAllowPopToRoot: Bool = false
     var loginController: LoginController!
-    var socketIOClient: SocketIOClient!
-    let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(true)])
     //MARK: Block
     var didDismisloginBlock: (() -> ())?
     //MARK: Life Cycle
@@ -33,31 +30,6 @@ class LoginViewController: AppViewController {
 //        configureSocketIO()
     }
     
-    func configureSocketIO() {
-        
-        socketIOClient = manager.defaultSocket
-        
-        socketIOClient.on(clientEvent: .connect) {data, ack in
-            print("socket connected")
-             self.socketIOClient.emit("edit_subcontent", ["user_id": 3, "meeting_id": 1, "subcontent": ["id": 27, "author": "Quan Nguyen", "content": "abc"]])
-        }
-        
-        socketIOClient.on("chat") { data, ack in
-            print("connected")
-        }
-        
-        socketIOClient.on("edit_subcontent") {data, ack in
-            guard let cur = data[0] as? Double else { return }
-            
-//            self.socketIOClient.emitWithAck("canUpdate", cur).timingOut(after: 0) {data in
-//                self.socketIOClient.emit("update", ["amount": cur + 2.50])
-//            }
-            
-//            ack.with("Got your currentAmount", "dude")
-        }
-        
-        socketIOClient.connect()
-    }
     
     
     override func viewWillAppear(_ animated: Bool) {

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="KGk-i7-Jjw" customClass="ResolveTableViewCell" customModule="TinyBaseCore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="92"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="91.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTQ-dD-LSa">
+                        <rect key="frame" x="285" y="21" width="50" height="50"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_un_check_box" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-4k-5x4">
+                                <rect key="frame" x="10" y="10" width="30" height="30"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Bry-tj-cWJ"/>
+                            <constraint firstAttribute="bottom" secondItem="jaz-4k-5x4" secondAttribute="bottom" constant="10" id="CUe-mY-ims"/>
+                            <constraint firstAttribute="trailing" secondItem="jaz-4k-5x4" secondAttribute="trailing" constant="10" id="XGJ-kI-T0A"/>
+                            <constraint firstAttribute="width" constant="50" id="dyY-Ue-DF8"/>
+                            <constraint firstItem="jaz-4k-5x4" firstAttribute="top" secondItem="TTQ-dD-LSa" secondAttribute="top" constant="10" id="nAX-wg-z2O"/>
+                            <constraint firstItem="jaz-4k-5x4" firstAttribute="leading" secondItem="TTQ-dD-LSa" secondAttribute="leading" constant="10" id="z2t-gS-KVv"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7c-k6-Yc6">
+                        <rect key="frame" x="26" y="37" width="249" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="d7c-k6-Yc6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3sC-T6-wUr"/>
+                    <constraint firstItem="TTQ-dD-LSa" firstAttribute="leading" secondItem="d7c-k6-Yc6" secondAttribute="trailing" constant="10" id="LoJ-8C-Dqw"/>
+                    <constraint firstAttribute="trailing" secondItem="TTQ-dD-LSa" secondAttribute="trailing" constant="10" id="meO-Xs-Svp"/>
+                    <constraint firstItem="d7c-k6-Yc6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="tqV-wZ-Sdw"/>
+                    <constraint firstItem="TTQ-dD-LSa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tvK-jj-tIo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkbox" destination="jaz-4k-5x4" id="L89-rL-rMg"/>
+                <outlet property="textLb" destination="d7c-k6-Yc6" id="PTm-Z3-ogi"/>
+            </connections>
+            <point key="canvasLocation" x="72.799999999999997" y="125.03748125937032"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_un_check_box" width="423.5294189453125" height="423.5294189453125"/>
+    </resources>
+</document>

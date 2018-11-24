@@ -93,6 +93,9 @@
 		7E927A35215FDE7000089EFD /* EnvironmentManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E927A34215FDE7000089EFD /* EnvironmentManage.swift */; };
 		7EB4EBAC21A90FD6005B35C6 /* ResolveConfligViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4EBAA21A90FD6005B35C6 /* ResolveConfligViewController.swift */; };
 		7EB4EBAD21A90FD6005B35C6 /* ResolveConfligViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB4EBAB21A90FD6005B35C6 /* ResolveConfligViewController.xib */; };
+		7EB4EBB121A9151C005B35C6 /* ResolveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4EBAF21A9151C005B35C6 /* ResolveTableViewCell.swift */; };
+		7EB4EBB221A9151C005B35C6 /* ResolveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EB4EBB021A9151C005B35C6 /* ResolveTableViewCell.xib */; };
+		7EB4EBB421A92E16005B35C6 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB4EBB321A92E16005B35C6 /* SocketManager.swift */; };
 		7EFC33BA216C97320017C5A3 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC33B9216C97320017C5A3 /* AppController.swift */; };
 		7EFC33BC216C9A8D0017C5A3 /* ControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC33BB216C9A8D0017C5A3 /* ControllerFactory.swift */; };
 		7EFC33C1216CAABA0017C5A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC33BF216CAABA0017C5A3 /* HomeViewController.swift */; };
@@ -191,6 +194,9 @@
 		7E927A34215FDE7000089EFD /* EnvironmentManage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentManage.swift; sourceTree = "<group>"; };
 		7EB4EBAA21A90FD6005B35C6 /* ResolveConfligViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveConfligViewController.swift; sourceTree = "<group>"; };
 		7EB4EBAB21A90FD6005B35C6 /* ResolveConfligViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResolveConfligViewController.xib; sourceTree = "<group>"; };
+		7EB4EBAF21A9151C005B35C6 /* ResolveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveTableViewCell.swift; sourceTree = "<group>"; };
+		7EB4EBB021A9151C005B35C6 /* ResolveTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResolveTableViewCell.xib; sourceTree = "<group>"; };
+		7EB4EBB321A92E16005B35C6 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		7EFC33B9216C97320017C5A3 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		7EFC33BB216C9A8D0017C5A3 /* ControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactory.swift; sourceTree = "<group>"; };
 		7EFC33BF216CAABA0017C5A3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -521,6 +527,7 @@
 		7E927A06215FDA5D00089EFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7EB4EBAE21A914EC005B35C6 /* ResolveConfligCell */,
 				7E2F641D21A57C8400A9547A /* PreviewCell */,
 				7E2F641321A5796300A9547A /* importCell */,
 				7E388F76218CEC6A0081BDDB /* SubContent */,
@@ -582,6 +589,7 @@
 				7E927A34215FDE7000089EFD /* EnvironmentManage.swift */,
 				7E927A13215FDA6500089EFD /* AppObserver.swift */,
 				7E927A30215FDE1900089EFD /* AlertManage.swift */,
+				7EB4EBB321A92E16005B35C6 /* SocketManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -604,6 +612,15 @@
 				7EB4EBAB21A90FD6005B35C6 /* ResolveConfligViewController.xib */,
 			);
 			path = ResolveConfligViewController;
+			sourceTree = "<group>";
+		};
+		7EB4EBAE21A914EC005B35C6 /* ResolveConfligCell */ = {
+			isa = PBXGroup;
+			children = (
+				7EB4EBAF21A9151C005B35C6 /* ResolveTableViewCell.swift */,
+				7EB4EBB021A9151C005B35C6 /* ResolveTableViewCell.xib */,
+			);
+			path = ResolveConfligCell;
 			sourceTree = "<group>";
 		};
 		7EFC33B8216C971D0017C5A3 /* Controllers */ = {
@@ -702,6 +719,7 @@
 				7E54A230219052930027E8F0 /* SubContents2.json in Resources */,
 				7E2A9E97218ACEC70054D409 /* TopLoginCell.xib in Resources */,
 				7E9279CE215FD90700089EFD /* Main.storyboard in Resources */,
+				7EB4EBB221A9151C005B35C6 /* ResolveTableViewCell.xib in Resources */,
 				7E2A9E95218ACEC70054D409 /* LoginCell.xib in Resources */,
 				7E2F641221A574D600A9547A /* ImportViewController.xib in Resources */,
 				7EB4EBAD21A90FD6005B35C6 /* ResolveConfligViewController.xib in Resources */,
@@ -719,7 +737,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TinyBaseCore/Pods-TinyBaseCore-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
@@ -735,7 +752,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
@@ -778,7 +794,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EB4EBB421A92E16005B35C6 /* SocketManager.swift in Sources */,
 				7E388FD9218CF2F50081BDDB /* Notifier.swift in Sources */,
+				7EB4EBB121A9151C005B35C6 /* ResolveTableViewCell.swift in Sources */,
 				7E388F70218CE4C90081BDDB /* SubContentViewController.swift in Sources */,
 				7E388F67218CDFD00081BDDB /* MeetingService.swift in Sources */,
 				7E3ABCBF216272EA0033BB60 /* RealmExtension.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SocketIO
 
 class SubContentViewController: AppViewController {
     @IBOutlet var titleLabel: UILabel!
@@ -23,14 +24,36 @@ class SubContentViewController: AppViewController {
     
     var subContentController: SubContentController!
     var meetingId: Int = 0
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(true)])
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.isNavigationBarHidden = true
         subContentController = ControllerFactory.createController(type: SubContentController.self, for: self) as? SubContentController
         initComponent()
+        configureSocketIO()
         // Do any additional setup after loading the view.
     }
+    
+    func configureSocketIO() {
+        
+        SocketIOManager.sharedInstance.socketIOClient = manager.defaultSocket
+        
+        SocketIOManager.sharedInstance.socketIOClient.on(clientEvent: .connect) {data, ack in
+            print("socket connected")
+        }
+        
+        SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": 3, "meeting_id": 1, "subcontent": ["id": 27, "author": "Quan Nguyen", "content": "abcdefgh"]])
+        
+        SocketIOManager.sharedInstance.socketIOClient.on("edit_subcontent") {data, ack in
+            //            guard let cur = data[0] as? Double else { return }
+        }
+        
+        
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -43,6 +66,12 @@ class SubContentViewController: AppViewController {
             self.titleLabel.text = meeting.title
             self.meetingId = meeting.meetingId
         }
+        SocketIOManager.sharedInstance.socketIOClient.connect()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SocketIOManager.sharedInstance.socketIOClient.disconnect()
     }
     
     func initComponent() {
@@ -87,24 +116,15 @@ class SubContentViewController: AppViewController {
         }
     }
     
-    @IBAction func pushAction(_ sender: Any) {
-        self.subContentController.parseTextToObjects(textName: "SubContents") { (status, subcontents) in
-            if status {
-                DispatchQueue.main.async {
-                    self.subContentController.pushTextToSystem(contents: subcontents ?? [], meetingId: self.meetingId)
-                }
-                
-            }
-        }
+    func getAuthorAndContentIsConfligFrom(startTime: String, endTime: String) -> ([String],[String]) {
+        return (self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime }.filter {$0.author != ""}.map { $0.author }, self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime }.filter {$0.content != ""}.map { $0.content })
     }
-    
     
     @IBAction func importAction(_ sender: Any) {
         let importVC = ImportViewController()
         importVC.meetingId = self.meetingId
         self.navigationController?.pushViewController(importVC, animated: true)
     }
-    
     
     @IBAction func cancelAction(_ sender: Any) {
         self.preview.isHidden = true
@@ -158,6 +178,20 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
             return 85
         }
         return 130
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let subContent = self.subContentController.contents[indexPath.row]
+        guard subContent.flag == 1 else {
+            return
+        }
+        
+        let (authors, contents) = self.getAuthorAndContentIsConfligFrom(startTime: subContent.startTime, endTime: subContent.endTime)
+        
+        let resolveViewController = ResolveConfligViewController()
+        resolveViewController.authors = authors
+        resolveViewController.contents = contents
+        self.navigationController?.pushViewController(resolveViewController, animated: true)
     }
     
     

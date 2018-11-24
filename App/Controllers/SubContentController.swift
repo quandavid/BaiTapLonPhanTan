@@ -14,9 +14,11 @@ class SubContentController: AppController {
     typealias TextCompletion = (_ status: Bool, _ data: String) -> ()
     var meetingService = MeetingService()
     var contents : [SubContentModel] = []
+    var fullContents: [SubContentModel] = []
     func getMeeting(meetingId: Int) {
         meetingService.getOneMeeting(meetingId: meetingId).subscribe(onNext: {[weak self] data in
             guard let this = self else { return }
+            this.fullContents = data
             this.contents = data.filter { $0.isFull == 1 }
             this.notifyObservers(.SubContent_gotData)
             }, onError: {[weak self] (error) in
