@@ -65,8 +65,12 @@
 		7E3ABCBC216270A90033BB60 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3ABCBB216270A90033BB60 /* HttpResponse.swift */; };
 		7E3ABCBF216272EA0033BB60 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3ABCBE216272EA0033BB60 /* RealmExtension.swift */; };
 		7E431AB62193BA0F00C420C3 /* RoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E431AB52193BA0F00C420C3 /* RoleModel.swift */; };
+		7E47092221A7A33C00C541EA /* SubContents1.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E47092121A7A33C00C541EA /* SubContents1.json */; };
+		7E47092421A7A9FB00C541EA /* SubContents3.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E47092321A7A9FB00C541EA /* SubContents3.json */; };
+		7E47092621A7AA0A00C541EA /* SubContents4.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E47092521A7AA0A00C541EA /* SubContents4.json */; };
+		7E47092821A7E02200C541EA /* AppFoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E47092721A7E02200C541EA /* AppFoldingCell.swift */; };
 		7E54A22E219048500027E8F0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E54A22D219048500027E8F0 /* StringExtension.swift */; };
-		7E54A230219052930027E8F0 /* SubContents.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E54A22F219052930027E8F0 /* SubContents.json */; };
+		7E54A230219052930027E8F0 /* SubContents2.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E54A22F219052930027E8F0 /* SubContents2.json */; };
 		7E6EF9A2216F41E900FC3522 /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EF9A1216F41E900FC3522 /* AppCollectionViewCell.swift */; };
 		7E9279C9215FD90700089EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9279C8215FD90700089EFD /* AppDelegate.swift */; };
 		7E9279CE215FD90700089EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9279CC215FD90700089EFD /* Main.storyboard */; };
@@ -155,8 +159,12 @@
 		7E3ABCBB216270A90033BB60 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		7E3ABCBE216272EA0033BB60 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		7E431AB52193BA0F00C420C3 /* RoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleModel.swift; sourceTree = "<group>"; };
+		7E47092121A7A33C00C541EA /* SubContents1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubContents1.json; sourceTree = "<group>"; };
+		7E47092321A7A9FB00C541EA /* SubContents3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubContents3.json; sourceTree = "<group>"; };
+		7E47092521A7AA0A00C541EA /* SubContents4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubContents4.json; sourceTree = "<group>"; };
+		7E47092721A7E02200C541EA /* AppFoldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFoldingCell.swift; sourceTree = "<group>"; };
 		7E54A22D219048500027E8F0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		7E54A22F219052930027E8F0 /* SubContents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubContents.json; sourceTree = "<group>"; };
+		7E54A22F219052930027E8F0 /* SubContents2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubContents2.json; sourceTree = "<group>"; };
 		7E6EF9A1216F41E900FC3522 /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E9279C5215FD90700089EFD /* TinyBaseCore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyBaseCore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9279C8215FD90700089EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +324,7 @@
 			children = (
 				7E388F77218CEC8E0081BDDB /* SubContentCell.swift */,
 				7E388F78218CEC8E0081BDDB /* SubContentCell.xib */,
+				7E47092721A7E02200C541EA /* AppFoldingCell.swift */,
 			);
 			path = SubContent;
 			sourceTree = "<group>";
@@ -546,7 +555,10 @@
 				7E9279CF215FD90900089EFD /* Assets.xcassets */,
 				7E9279D1215FD90900089EFD /* LaunchScreen.storyboard */,
 				7E9279D4215FD90900089EFD /* Info.plist */,
-				7E54A22F219052930027E8F0 /* SubContents.json */,
+				7E54A22F219052930027E8F0 /* SubContents2.json */,
+				7E47092121A7A33C00C541EA /* SubContents1.json */,
+				7E47092321A7A9FB00C541EA /* SubContents3.json */,
+				7E47092521A7AA0A00C541EA /* SubContents4.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -662,7 +674,10 @@
 			files = (
 				7E388F7A218CEC8E0081BDDB /* SubContentCell.xib in Resources */,
 				7E2F642121A57C9D00A9547A /* PreviewCell.xib in Resources */,
+				7E47092221A7A33C00C541EA /* SubContents1.json in Resources */,
+				7E47092621A7AA0A00C541EA /* SubContents4.json in Resources */,
 				7E9279D3215FD90900089EFD /* LaunchScreen.storyboard in Resources */,
+				7E47092421A7A9FB00C541EA /* SubContents3.json in Resources */,
 				7E2F641721A5798200A9547A /* ImportCell.xib in Resources */,
 				7E388F71218CE4C90081BDDB /* SubContentViewController.xib in Resources */,
 				7E388F6C218CE2F30081BDDB /* MeetingCell.xib in Resources */,
@@ -670,7 +685,7 @@
 				7E2A9E9B218ACEE10054D409 /* LoginViewController.xib in Resources */,
 				7E2F641C21A57BA500A9547A /* PreviewViewController.xib in Resources */,
 				7E2A9EAA218ACEE10054D409 /* MeetingViewController.xib in Resources */,
-				7E54A230219052930027E8F0 /* SubContents.json in Resources */,
+				7E54A230219052930027E8F0 /* SubContents2.json in Resources */,
 				7E2A9E97218ACEC70054D409 /* TopLoginCell.xib in Resources */,
 				7E9279CE215FD90700089EFD /* Main.storyboard in Resources */,
 				7E2A9E95218ACEC70054D409 /* LoginCell.xib in Resources */,
@@ -689,6 +704,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TinyBaseCore/Pods-TinyBaseCore-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
@@ -704,6 +720,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
@@ -789,6 +806,7 @@
 				7E2A9E9E218ACEE10054D409 /* LoginController.swift in Sources */,
 				7E54A22E219048500027E8F0 /* StringExtension.swift in Sources */,
 				7E388FD5218CF2F50081BDDB /* BaseTBCell.swift in Sources */,
+				7E47092821A7E02200C541EA /* AppFoldingCell.swift in Sources */,
 				7E927A31215FDE1900089EFD /* AlertManage.swift in Sources */,
 				7E927A16215FDA6500089EFD /* AppConstant.swift in Sources */,
 				7E927A17215FDA6500089EFD /* AppObserver.swift in Sources */,
