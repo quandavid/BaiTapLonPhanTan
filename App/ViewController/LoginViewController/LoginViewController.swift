@@ -95,7 +95,7 @@ class LoginViewController: AppViewController {
             }
             break
         case .Login_loginFail:
-            
+            UtilManage.showAlert(message: "Login failed", type: .ok, complete: nil)
             break
         default:
             super.update(command, data: data)

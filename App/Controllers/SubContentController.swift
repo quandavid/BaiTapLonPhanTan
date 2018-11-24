@@ -19,7 +19,7 @@ class SubContentController: AppController {
         meetingService.getOneMeeting(meetingId: meetingId).subscribe(onNext: {[weak self] data in
             guard let this = self else { return }
             this.fullContents = data
-            this.contents = data.filter { $0.isFull == 1 }
+            this.contents = data.filter { $0.author != "" }
             this.notifyObservers(.SubContent_gotData)
             }, onError: {[weak self] (error) in
                 guard let this = self else { return }

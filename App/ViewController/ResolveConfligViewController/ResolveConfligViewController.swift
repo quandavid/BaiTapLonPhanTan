@@ -19,6 +19,8 @@ class ResolveConfligViewController: AppViewController {
     var contents: [String] = []
     var currentAuthor: Int = -1
     var currentContent: Int = -1
+    var subContentInfos: [SubContentModel]!
+    var subContentInfo: SubContentModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         initComponent()
@@ -43,7 +45,21 @@ class ResolveConfligViewController: AppViewController {
     
 
     @IBAction func confirmAction(_ sender: Any) {
-        
+        guard currentContent != -1 && currentAuthor != -1 else { return }
+        let subcontent1 = getSubContentByAuthor(author: authors[currentAuthor])
+        let subcontent2 = getSubContentByContent(content: contents[currentContent])
+        SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": subcontent1.userId, "meeting_id": subcontent1.meetingId, "subcontent": ["id": 0, "author": subcontent1.author, "content": subcontent2.content, "start_time": subcontent2.startTime, "end_time": subcontent2.endTime]])
+            SocketIOManager.sharedInstance.socketIOClient.emit("delete_subcontent", ["user_id": subcontent1.userId, "meeting_id": subcontent1.meetingId, "subcontent": ["id": subcontent1.subId, "author": subcontent1.author, "content": subcontent1.content, "start_time": subcontent1.startTime, "end_time": subcontent1.endTime]])
+            SocketIOManager.sharedInstance.socketIOClient.emit("delete_subcontent", ["user_id": subcontent2.userId, "meeting_id": subcontent2.meetingId, "subcontent": ["id": subcontent2.subId, "author": subcontent2.author, "content": subcontent2.content, "start_time": subcontent2.startTime, "end_time": subcontent2.endTime]])
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func getSubContentByAuthor(author: String) -> SubContentModel {
+        return subContentInfos.filter{ $0.author == author }.first!
+    }
+    
+    func getSubContentByContent(content: String) -> SubContentModel {
+        return subContentInfos.filter{ $0.content == content }.first!
     }
     
     @IBAction func backAction(_ sender: Any) {

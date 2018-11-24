@@ -19,10 +19,20 @@ class LoginService: AppService {
             }
             let userModel = UserModel(json: response.data)
             return Observable<UserModel>.create({ (subscribe)  in
-                subscribe.onNext(userModel)
-                subscribe.onCompleted()
+                
+                if response.data.count == 0 {
+                    subscribe.onError(HandingError.loginFailed)
+                } else {
+                    subscribe.onNext(userModel)
+                    subscribe.onCompleted()
+                }
                 return Disposables.create()
             })
         }
     }
+}
+
+enum HandingError: Error {
+    case loginFailed
+    case badRequest
 }

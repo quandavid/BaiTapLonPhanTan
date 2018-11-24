@@ -41,8 +41,13 @@ class SubContentCell: AppTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         content.delegate = self
+        self.selectionStyle = .none
         self.status.layer.cornerRadius = 13
         self.status.layer.masksToBounds = true
+        content.layer.masksToBounds = true
+        content.layer.borderWidth = 2
+        content.layer.borderColor = UIColor.groupTableViewBackground.cgColor
+        content.layer.cornerRadius = 4
         // Initialization code
     }
     

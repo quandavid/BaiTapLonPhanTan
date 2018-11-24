@@ -44,15 +44,14 @@ class SubContentViewController: AppViewController {
             print("socket connected")
         }
         
-        SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": 3, "meeting_id": 1, "subcontent": ["id": 27, "author": "Quan Nguyen", "content": "abcdefgh"]])
-        
         SocketIOManager.sharedInstance.socketIOClient.on("edit_subcontent") {data, ack in
-            //            guard let cur = data[0] as? Double else { return }
+            UtilManage.showAlert(message: "Records were updated", type: .ok, complete: { (alert, button) in
+                self.subContentController.getMeeting(meetingId: self.meetingId)
+            })
         }
         
         
     }
-    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,7 +70,6 @@ class SubContentViewController: AppViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        SocketIOManager.sharedInstance.socketIOClient.disconnect()
     }
     
     func initComponent() {
@@ -116,8 +114,8 @@ class SubContentViewController: AppViewController {
         }
     }
     
-    func getAuthorAndContentIsConfligFrom(startTime: String, endTime: String) -> ([String],[String]) {
-        return (self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime }.filter {$0.author != ""}.map { $0.author }, self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime }.filter {$0.content != ""}.map { $0.content })
+    func getAuthorAndContentIsConfligFrom(startTime: String, endTime: String) -> ([String],[String], [SubContentModel]) {
+        return (self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime }.filter {$0.author != "" && $0.isFull == 0}.map { $0.author }, self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime }.filter {$0.content != "" && $0.isFull == 0}.map { $0.content }, self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime && $0.isFull == 0 })
     }
     
     @IBAction func importAction(_ sender: Any) {
@@ -135,6 +133,7 @@ class SubContentViewController: AppViewController {
     }
     
     @IBAction func handleBackAction(_ sender: Any) {
+        SocketIOManager.sharedInstance.socketIOClient.disconnect()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -153,8 +152,6 @@ class SubContentViewController: AppViewController {
     @IBAction func handleCancelInvite(_ sender: Any) {
         self.invitedView.isHidden = true
     }
-    
-    
 }
 
 extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
@@ -167,8 +164,10 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
         cell.subContent = self.subContentController.contents[indexPath.row]
         cell.updatedText = { [weak self] text in
             guard let this = self else { return }
-            (this.subContentController.contents[indexPath.row]).content = text
-            this.subContentController.updateText(meetingId: this.meetingId, index: indexPath.row)
+            let subcontent = this.subContentController.contents[indexPath.row]
+            SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": subcontent.userId, "meeting_id": subcontent.meetingId, "subcontent": ["id": subcontent.subId, "author": subcontent.author, "content": text, "start_time": subcontent.startTime, "end_time": subcontent.endTime]])
+//            (this.subContentController.contents[indexPath.row]).content = text
+//            this.subContentController.updateText(meetingId: this.meetingId, index: indexPath.row)
         }
         return cell
     }
@@ -186,9 +185,11 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         
-        let (authors, contents) = self.getAuthorAndContentIsConfligFrom(startTime: subContent.startTime, endTime: subContent.endTime)
+        let (authors, contents, subcontents) = self.getAuthorAndContentIsConfligFrom(startTime: subContent.startTime, endTime: subContent.endTime)
         
         let resolveViewController = ResolveConfligViewController()
+        resolveViewController.subContentInfos = subcontents
+        resolveViewController.subContentInfo = subContent
         resolveViewController.authors = authors
         resolveViewController.contents = contents
         self.navigationController?.pushViewController(resolveViewController, animated: true)

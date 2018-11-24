@@ -368,7 +368,6 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="tX1-I9-VTh"/>
                     <exclude reference="iVp-w0-UDp"/>
                 </mask>
             </variation>
