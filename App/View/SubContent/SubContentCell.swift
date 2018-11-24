@@ -26,7 +26,7 @@ class SubContentCell: AppTableViewCell {
             self.endTime.text = "End time: \(subContent.endTime)"
             self.content.text = subContent.content
             DispatchQueue.main.async {
-                if self.subContent.isFlig == 1 {
+                if self.subContent.flag == 1 {
                     self.status.backgroundColor = .red
                 } else if self.subContent.isFull == 0 {
                     self.status.backgroundColor = .blue
