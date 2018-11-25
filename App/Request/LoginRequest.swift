@@ -15,4 +15,10 @@ class LoginRequest: AppRequest {
         params[Constant.RepositoryParam.requestParams] = ["email": email, "password": password]
         return self.create(url: "users/login", options: params)
     }
+    
+    func registerUser(name: String, email: String, password: String) -> Observable<HttpResponse> {
+        var params: [String: Any] = [:]
+        params[Constant.RepositoryParam.requestParams] = ["email": email, "password": password, "name": name]
+        return self.create(url: "users/signup", options: params)
+    }
 }

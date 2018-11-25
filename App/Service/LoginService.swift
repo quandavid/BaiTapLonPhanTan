@@ -30,9 +30,26 @@ class LoginService: AppService {
             })
         }
     }
+    
+    func registerUser( name: String, email: String, password: String) -> Observable<UserModel> {
+        return loginRequest.registerUser(name: name, email: email, password: password).flatMap({ (response) -> Observable<UserModel> in
+            let userModel = UserModel(json: response.data)
+            return Observable<UserModel>.create({ (subscribe)  in
+                
+                if response.data.count == 0 {
+                    subscribe.onError(HandingError.registerFailure)
+                } else {
+                    subscribe.onNext(userModel)
+                    subscribe.onCompleted()
+                }
+                return Disposables.create()
+            })
+        })
+    }
 }
 
 enum HandingError: Error {
     case loginFailed
     case badRequest
+    case registerFailure
 }

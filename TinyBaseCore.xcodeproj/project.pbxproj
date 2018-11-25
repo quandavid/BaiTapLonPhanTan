@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		42547F4DBBC6EDAFE8FB33C4 /* Pods_TinyBaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57258A839E8304A6D146ED51 /* Pods_TinyBaseCore.framework */; };
+		7E27747621AA5E5E00B8C74D /* TopRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E27747221AA5E5D00B8C74D /* TopRegisterCell.swift */; };
+		7E27747721AA5E5E00B8C74D /* RegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E27747321AA5E5D00B8C74D /* RegisterCell.xib */; };
+		7E27747821AA5E5E00B8C74D /* TopRegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E27747421AA5E5E00B8C74D /* TopRegisterCell.xib */; };
+		7E27747921AA5E5E00B8C74D /* RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E27747521AA5E5E00B8C74D /* RegisterCell.swift */; };
+		7E27747C21AA5EEA00B8C74D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E27747A21AA5EE900B8C74D /* RegisterViewController.swift */; };
+		7E27747D21AA5EEA00B8C74D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E27747B21AA5EEA00B8C74D /* RegisterViewController.xib */; };
 		7E2A9E94218ACEC70054D409 /* TopLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A9E90218ACEC70054D409 /* TopLoginCell.swift */; };
 		7E2A9E95218ACEC70054D409 /* LoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2A9E91218ACEC70054D409 /* LoginCell.xib */; };
 		7E2A9E96218ACEC70054D409 /* LoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A9E92218ACEC70054D409 /* LoginCell.swift */; };
@@ -107,6 +113,12 @@
 /* Begin PBXFileReference section */
 		4339225D6F5F7451A0D68F1B /* Pods-TinyBaseCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinyBaseCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TinyBaseCore/Pods-TinyBaseCore.debug.xcconfig"; sourceTree = "<group>"; };
 		57258A839E8304A6D146ED51 /* Pods_TinyBaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinyBaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E27747221AA5E5D00B8C74D /* TopRegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRegisterCell.swift; sourceTree = "<group>"; };
+		7E27747321AA5E5D00B8C74D /* RegisterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterCell.xib; sourceTree = "<group>"; };
+		7E27747421AA5E5E00B8C74D /* TopRegisterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopRegisterCell.xib; sourceTree = "<group>"; };
+		7E27747521AA5E5E00B8C74D /* RegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCell.swift; sourceTree = "<group>"; };
+		7E27747A21AA5EE900B8C74D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7E27747B21AA5EEA00B8C74D /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		7E2A9E90218ACEC70054D409 /* TopLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopLoginCell.swift; sourceTree = "<group>"; };
 		7E2A9E91218ACEC70054D409 /* LoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginCell.xib; sourceTree = "<group>"; };
 		7E2A9E92218ACEC70054D409 /* LoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCell.swift; sourceTree = "<group>"; };
@@ -238,6 +250,10 @@
 		7E2A9E8F218ACEC70054D409 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				7E27747521AA5E5E00B8C74D /* RegisterCell.swift */,
+				7E27747321AA5E5D00B8C74D /* RegisterCell.xib */,
+				7E27747221AA5E5D00B8C74D /* TopRegisterCell.swift */,
+				7E27747421AA5E5E00B8C74D /* TopRegisterCell.xib */,
 				7E2A9E90218ACEC70054D409 /* TopLoginCell.swift */,
 				7E2A9E91218ACEC70054D409 /* LoginCell.xib */,
 				7E2A9E92218ACEC70054D409 /* LoginCell.swift */,
@@ -249,6 +265,8 @@
 		7E2A9E98218ACEE10054D409 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7E27747A21AA5EE900B8C74D /* RegisterViewController.swift */,
+				7E27747B21AA5EEA00B8C74D /* RegisterViewController.xib */,
 				7E2A9E99218ACEE10054D409 /* LoginViewController.xib */,
 				7E2A9E9A218ACEE10054D409 /* LoginViewController.swift */,
 			);
@@ -706,6 +724,7 @@
 				7E388F7A218CEC8E0081BDDB /* SubContentCell.xib in Resources */,
 				7E2F642121A57C9D00A9547A /* PreviewCell.xib in Resources */,
 				7E47092221A7A33C00C541EA /* SubContents1.json in Resources */,
+				7E27747721AA5E5E00B8C74D /* RegisterCell.xib in Resources */,
 				7E47092621A7AA0A00C541EA /* SubContents4.json in Resources */,
 				7E9279D3215FD90900089EFD /* LaunchScreen.storyboard in Resources */,
 				7E47092421A7A9FB00C541EA /* SubContents3.json in Resources */,
@@ -713,6 +732,7 @@
 				7E388F71218CE4C90081BDDB /* SubContentViewController.xib in Resources */,
 				7E388F6C218CE2F30081BDDB /* MeetingCell.xib in Resources */,
 				7E9279D0215FD90900089EFD /* Assets.xcassets in Resources */,
+				7E27747D21AA5EEA00B8C74D /* RegisterViewController.xib in Resources */,
 				7E2A9E9B218ACEE10054D409 /* LoginViewController.xib in Resources */,
 				7E2F641C21A57BA500A9547A /* PreviewViewController.xib in Resources */,
 				7E2A9EAA218ACEE10054D409 /* MeetingViewController.xib in Resources */,
@@ -720,6 +740,7 @@
 				7E2A9E97218ACEC70054D409 /* TopLoginCell.xib in Resources */,
 				7E9279CE215FD90700089EFD /* Main.storyboard in Resources */,
 				7EB4EBB221A9151C005B35C6 /* ResolveTableViewCell.xib in Resources */,
+				7E27747821AA5E5E00B8C74D /* TopRegisterCell.xib in Resources */,
 				7E2A9E95218ACEC70054D409 /* LoginCell.xib in Resources */,
 				7E2F641221A574D600A9547A /* ImportViewController.xib in Resources */,
 				7EB4EBAD21A90FD6005B35C6 /* ResolveConfligViewController.xib in Resources */,
@@ -800,6 +821,7 @@
 				7E388F70218CE4C90081BDDB /* SubContentViewController.swift in Sources */,
 				7E388F67218CDFD00081BDDB /* MeetingService.swift in Sources */,
 				7E3ABCBF216272EA0033BB60 /* RealmExtension.swift in Sources */,
+				7E27747921AA5E5E00B8C74D /* RegisterCell.swift in Sources */,
 				7E388FDC218CF2F50081BDDB /* BaseRequest.swift in Sources */,
 				7E388FDD218CF2F50081BDDB /* BaseViewController.swift in Sources */,
 				7E927A2B215FDCEF00089EFD /* AppCollectionView.swift in Sources */,
@@ -816,6 +838,7 @@
 				7E388FDE218CF2F50081BDDB /* ViewControllerDelegate.swift in Sources */,
 				7E388FCB218CF2F50081BDDB /* BaseStorage.swift in Sources */,
 				7E927A01215FDA2200089EFD /* AppViewController.swift in Sources */,
+				7E27747C21AA5EEA00B8C74D /* RegisterViewController.swift in Sources */,
 				7E927A35215FDE7000089EFD /* EnvironmentManage.swift in Sources */,
 				7E388FCF218CF2F50081BDDB /* UIColorExtension.swift in Sources */,
 				7EB4EBAC21A90FD6005B35C6 /* ResolveConfligViewController.swift in Sources */,
@@ -837,6 +860,7 @@
 				7E431AB62193BA0F00C420C3 /* RoleModel.swift in Sources */,
 				7E388FDB218CF2F50081BDDB /* BaseController.swift in Sources */,
 				7E2A9EAC218ACEE10054D409 /* MeetingController.swift in Sources */,
+				7E27747621AA5E5E00B8C74D /* TopRegisterCell.swift in Sources */,
 				7E2A9E9E218ACEE10054D409 /* LoginController.swift in Sources */,
 				7E54A22E219048500027E8F0 /* StringExtension.swift in Sources */,
 				7E388FD5218CF2F50081BDDB /* BaseTBCell.swift in Sources */,

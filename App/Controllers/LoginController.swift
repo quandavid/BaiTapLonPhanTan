@@ -21,4 +21,15 @@ class LoginController: AppController {
             this.notifyObservers(.Login_loginFail)
         }).disposed(by: disposeBag)
     }
+    
+    func registerUser(name: String, email: String, password: String) {
+        loginService.registerUser(name: name, email: email, password: password).subscribe(onNext: {[weak self] userModel in
+            guard let this = self else { return }
+            this.notifyObservers(.Register_registerSuccess, data: userModel)
+            }, onError: { [weak self] (error) in
+                guard let this = self else { return }
+                print(error)
+                this.notifyObservers(.Register_registerFail)
+        }).disposed(by: disposeBag)
+    }
 }

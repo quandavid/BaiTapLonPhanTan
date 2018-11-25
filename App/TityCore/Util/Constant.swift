@@ -32,3 +32,4 @@ public let OS_VERSION = UIDevice.current.systemVersion
 public let standardUserDefaults = UserDefaults.standard
 public let kUserInfo = "kUserInfo"
 public let kAccessToken = "kAccessToken"
+

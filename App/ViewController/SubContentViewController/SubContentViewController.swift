@@ -17,18 +17,22 @@ class SubContentViewController: AppViewController {
     @IBOutlet var subContentTableView: UITableView!
     //MARK: Value - invite
     @IBOutlet var emailText: UITextField!
+    @IBOutlet var fillTextField: UITextField!
     
     @IBOutlet var switchEditer: UISwitch!
     @IBOutlet var switchViewer: UISwitch!
     @IBOutlet var invitedView: UIView!
-    
+    var isRequesting: Bool = false
+    var startDate: String = ""
+    var endDate: String = ""
     var subContentController: SubContentController!
     var meetingId: Int = 0
-    let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(true)])
+    let manager = SocketManager(socketURL: URL(string: FDefined.SocketUrl)!, config: [.log(true)])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.fillTextField.delegate = self
+        fillTextField.addTarget(self, action: #selector(touchToTextField), for: .touchDown)
         self.navigationController?.isNavigationBarHidden = true
         subContentController = ControllerFactory.createController(type: SubContentController.self, for: self) as? SubContentController
         initComponent()
@@ -45,9 +49,40 @@ class SubContentViewController: AppViewController {
         }
         
         SocketIOManager.sharedInstance.socketIOClient.on("edit_subcontent") {data, ack in
-            UtilManage.showAlert(message: "Records were updated", type: .ok, complete: { (alert, button) in
-                self.subContentController.getMeeting(meetingId: self.meetingId)
-            })
+            if !self.isRequesting {
+                self.isRequesting = true
+                UtilManage.showAlert(message: "Records were updated", type: .ok, complete: { (alert, button) in
+                    self.subContentController.getMeeting(meetingId: self.meetingId)
+                })
+            }
+            
+        }
+        
+        SocketIOManager.sharedInstance.socketIOClient.on("delete_subcontent") {data, ack in
+            if !self.isRequesting {
+                self.isRequesting = true
+                UtilManage.showAlert(message: "Records were updated", type: .ok, complete: { (alert, button) in
+                    self.subContentController.getMeeting(meetingId: self.meetingId)
+                })
+            }
+        }
+        
+        SocketIOManager.sharedInstance.socketIOClient.on("add_subcontent") { (data, ack) in
+            if !self.isRequesting {
+                self.isRequesting = true
+                UtilManage.showAlert(message: "Records were updated", type: .ok, complete: { (alert, button) in
+                    self.subContentController.getMeeting(meetingId: self.meetingId)
+                })
+            }
+        }
+        
+        SocketIOManager.sharedInstance.socketIOClient.on("update_subcontent") { (data, ack) in
+            if !self.isRequesting {
+                self.isRequesting = true
+                UtilManage.showAlert(message: "Records were updated", type: .ok, complete: { (alert, button) in
+                    self.subContentController.getMeeting(meetingId: self.meetingId)
+                })
+            }
         }
         
         
@@ -105,6 +140,7 @@ class SubContentViewController: AppViewController {
         case .SubContent_gotData:
                 self.subContentTableView.reloadData()
                 self.preview.isHidden = true
+                self.isRequesting = false
             break
         case .SubContent_invited:
             self.invitedView.isHidden = true
@@ -117,6 +153,18 @@ class SubContentViewController: AppViewController {
     func getAuthorAndContentIsConfligFrom(startTime: String, endTime: String) -> ([String],[String], [SubContentModel]) {
         return (self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime }.filter {$0.author != "" && $0.isFull == 0}.map { $0.author }, self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime }.filter {$0.content != "" && $0.isFull == 0}.map { $0.content }, self.subContentController.fullContents.filter { $0.startTime == startTime && $0.endTime == endTime && $0.isFull == 0 })
     }
+    
+    
+    @IBAction func sendAction(_ sender: Any) {
+        print(StorageFactory.userStorage.getAll())
+        if let user = StorageFactory.userStorage.getAll()?.first {
+            SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": user.userId, "meeting_id": self.meetingId, "subcontent": ["id": 0, "author": user.name, "content": self.fillTextField.text ?? "", "start_time": self.startDate, "end_time": self.endDate]])
+            self.fillTextField.text = ""
+            self.fillTextField.resignFirstResponder()
+        }
+        
+    }
+    
     
     @IBAction func importAction(_ sender: Any) {
         let importVC = ImportViewController()
@@ -151,6 +199,13 @@ class SubContentViewController: AppViewController {
     }
     @IBAction func handleCancelInvite(_ sender: Any) {
         self.invitedView.isHidden = true
+    }
+    
+    func getCurrentDate() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.string(from: date)
     }
 }
 
@@ -195,6 +250,22 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
         self.navigationController?.pushViewController(resolveViewController, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("Deleted")
+            let subContent = self.subContentController.contents[indexPath.row]
+            SocketIOManager.sharedInstance.socketIOClient.emit("delete_subcontent", ["user_id": subContent.userId, "meeting_id": subContent.meetingId, "subcontent": ["id": subContent.subId, "author": subContent.author, "content": subContent.content, "start_time": subContent.startTime, "end_time": subContent.endTime]])
+        }
+    }
+    
+    @objc func touchToTextField( textField: UITextField) {
+        startDate = self.getCurrentDate()
+    }
+    
     
 }
 
@@ -203,5 +274,7 @@ extension SubContentViewController: UITextViewDelegate {
 }
 
 extension SubContentViewController: UITextFieldDelegate {
-    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        endDate = self.getCurrentDate()
+    }
 }

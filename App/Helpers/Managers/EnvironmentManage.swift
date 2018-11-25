@@ -10,7 +10,7 @@ import Foundation
 
 protocol EnvironmentProtocol {
     var hostUrl: String { get }
-   
+    var socketUrl: String { get }
 }
 
 enum EnvType: Int {
@@ -20,7 +20,11 @@ enum EnvType: Int {
 
 class TestEnvironment: EnvironmentProtocol {
     var hostUrl: String {
-        return "http://localhost:3000/api/"
+        return "http://192.168.12.245:3000/api/"
+    }
+    
+    var socketUrl: String {
+        return "http://192.168.12.245:8080/"
     }
     
 }
@@ -28,6 +32,10 @@ class TestEnvironment: EnvironmentProtocol {
 class ProductEnvironment: EnvironmentProtocol {
     var hostUrl: String {
         return "https://api.jetfri.com/"
+    }
+    
+    var socketUrl: String {
+        return "http://192.168.12.245:8080"
     }
     
 }
@@ -46,6 +54,10 @@ class EnvironmentConfigure {
     
     var hostUrl: String {
         return enviroment.hostUrl
+    }
+    
+    var socketUrl: String {
+        return enviroment.socketUrl
     }
     
 }

@@ -19,6 +19,11 @@ import Foundation
     Login_loginFail,
     Login_loginSuccess,
     
+    //MARK: Register page
+    
+    Register_registerSuccess,
+    Register_registerFail,
+    
     //MARK: Meeting page
     Meeting_getAllSucess,
     Meeting_createdNewMeeting,

@@ -14,11 +14,13 @@ class PreviewViewController: AppViewController {
     @IBOutlet var previewTableView: UITableView!
     var subContentList: [SubContentModel]!
     var meetingId: Int = 0
+    var userId: Int = 0
     var subContentController: SubContentController!
     override func viewDidLoad() {
         super.viewDidLoad()
         subContentController = ControllerFactory.createController(type: SubContentController.self, for: self) as? SubContentController
         initComponent()
+        userId = (StorageFactory.userStorage.getAll()?.first?.userId)!
         
         // Do any additional setup after loading the view.
     }
@@ -49,8 +51,10 @@ class PreviewViewController: AppViewController {
         switch command {
         case .Preview_PushTextSuccess:
             UtilManage.showAlert(message: "update successfully!", type: .ok) { (alertVC, button) in
+                SocketIOManager.sharedInstance.socketIOClient.emit("add_subcontent")
         self.navigationController?.popToRootViewController(animated: true)
             }
+            break
         default:
             super.update(command, data: data)
         }

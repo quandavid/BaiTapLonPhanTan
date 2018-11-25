@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SubContentViewController" customModule="TinyBaseCore" customModuleProvider="target">
             <connections>
                 <outlet property="emailText" destination="mE0-GF-ItE" id="jqR-kh-qjc"/>
+                <outlet property="fillTextField" destination="P3w-4W-YaV" id="gss-zd-oBj"/>
                 <outlet property="invitedView" destination="tX1-I9-VTh" id="XZB-G9-UY4"/>
                 <outlet property="preview" destination="iVp-w0-UDp" id="Uje-DI-PBo"/>
                 <outlet property="previewTextView" destination="uWq-f7-DDk" id="cH2-sA-8US"/>
@@ -50,7 +51,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eJZ-Qz-9Qs">
-                    <rect key="frame" x="10" y="84" width="355" height="523"/>
+                    <rect key="frame" x="10" y="84" width="355" height="483"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4b-c0-N2l">
@@ -125,6 +126,38 @@
                         <constraint firstAttribute="trailing" secondItem="QHf-xj-EmS" secondAttribute="trailing" id="mbf-cT-oMy"/>
                         <constraint firstItem="SlJ-Zl-fbo" firstAttribute="height" secondItem="7Ul-0a-pHi" secondAttribute="height" id="pSI-eg-owF"/>
                         <constraint firstItem="SlJ-Zl-fbo" firstAttribute="width" secondItem="7Ul-0a-pHi" secondAttribute="width" id="yJG-9N-rdi"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YaE-kb-ssF">
+                    <rect key="frame" x="0.0" y="567" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-jM-nex">
+                            <rect key="frame" x="324" y="5" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="KW2-jM-nex" secondAttribute="height" multiplier="23:15" id="7ar-jd-jkA"/>
+                            </constraints>
+                            <state key="normal" title="Send"/>
+                            <connections>
+                                <action selector="sendAction:" destination="-1" eventType="touchUpInside" id="Uop-np-Gez"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P3w-4W-YaV">
+                            <rect key="frame" x="5" y="5" width="309" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="P3w-4W-YaV" secondAttribute="bottom" constant="5" id="03n-RP-Dzn"/>
+                        <constraint firstAttribute="trailing" secondItem="KW2-jM-nex" secondAttribute="trailing" constant="5" id="FBI-Qe-WQz"/>
+                        <constraint firstItem="KW2-jM-nex" firstAttribute="leading" secondItem="P3w-4W-YaV" secondAttribute="trailing" constant="10" id="KBe-Dl-pan"/>
+                        <constraint firstAttribute="bottom" secondItem="KW2-jM-nex" secondAttribute="bottom" constant="5" id="Qlv-jt-NP6"/>
+                        <constraint firstItem="P3w-4W-YaV" firstAttribute="top" secondItem="YaE-kb-ssF" secondAttribute="top" constant="5" id="jVk-cg-30N"/>
+                        <constraint firstItem="P3w-4W-YaV" firstAttribute="leading" secondItem="YaE-kb-ssF" secondAttribute="leading" constant="5" id="m0E-Zh-ae5"/>
+                        <constraint firstItem="KW2-jM-nex" firstAttribute="top" secondItem="YaE-kb-ssF" secondAttribute="top" constant="5" id="pQW-dd-8CQ"/>
+                        <constraint firstAttribute="height" constant="40" id="yuf-ZS-vVU"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tX1-I9-VTh">
@@ -351,11 +384,13 @@
                 <constraint firstItem="eJZ-Qz-9Qs" firstAttribute="top" secondItem="c4b-c0-N2l" secondAttribute="bottom" id="E1Z-Xw-hED"/>
                 <constraint firstItem="tX1-I9-VTh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="E4D-NW-UHe"/>
                 <constraint firstItem="c4b-c0-N2l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Em9-yj-wJN"/>
+                <constraint firstItem="Hzn-fO-m4y" firstAttribute="top" secondItem="YaE-kb-ssF" secondAttribute="bottom" id="ILd-GM-Nch"/>
+                <constraint firstItem="YaE-kb-ssF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LWl-Up-wQu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eJZ-Qz-9Qs" secondAttribute="trailing" constant="10" id="QeG-YI-ulh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iVp-w0-UDp" secondAttribute="trailing" id="VT8-0o-cUr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YaE-kb-ssF" secondAttribute="trailing" id="XYo-Xr-3u4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tX1-I9-VTh" secondAttribute="trailing" id="XnT-8A-qna"/>
                 <constraint firstItem="iVp-w0-UDp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YZo-3x-Gbi"/>
-                <constraint firstItem="Hzn-fO-m4y" firstAttribute="top" secondItem="eJZ-Qz-9Qs" secondAttribute="bottom" id="cLR-ag-lkA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c4b-c0-N2l" secondAttribute="trailing" id="eJz-ut-rcR"/>
                 <constraint firstItem="iVp-w0-UDp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fZw-tR-2vD"/>
                 <constraint firstItem="c4b-c0-N2l" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fb7-Ez-dfQ"/>
@@ -364,10 +399,12 @@
                 <constraint firstItem="tX1-I9-VTh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sNZ-TN-xZu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iVp-w0-UDp" secondAttribute="bottom" id="tcL-hw-dP5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Hzn-fO-m4y" secondAttribute="trailing" id="vpS-3z-6Uq"/>
+                <constraint firstItem="YaE-kb-ssF" firstAttribute="top" secondItem="eJZ-Qz-9Qs" secondAttribute="bottom" id="xTQ-l2-Zbo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <variation key="default">
                 <mask key="subviews">
+                    <exclude reference="tX1-I9-VTh"/>
                     <exclude reference="iVp-w0-UDp"/>
                 </mask>
             </variation>

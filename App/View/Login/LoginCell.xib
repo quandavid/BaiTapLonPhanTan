@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill in your account info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zX-7k-yWt">
-                                <rect key="frame" x="0.0" y="94" width="187" height="17"/>
+                                <rect key="frame" x="0.0" y="94" width="185.5" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="IdX-i1-VgN"/>
                                 </constraints>
@@ -65,7 +65,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7L-2k-ch9">
-                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="28.5" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="RRt-RF-D8h"/>
                                                 </constraints>
@@ -106,7 +106,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsq-T8-nuL">
-                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50.5" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="oEa-q9-Ex6"/>
                                                 </constraints>
@@ -160,7 +160,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid email or password!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5c-or-9NJ">
-                                <rect key="frame" x="0.0" y="252" width="140" height="20"/>
+                                <rect key="frame" x="0.0" y="252" width="128.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="In1-R9-zka"/>
                                 </constraints>
@@ -182,6 +182,22 @@
                                     <action selector="loginAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dhX-7A-O60"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVH-Dy-Jx9">
+                                <rect key="frame" x="0.0" y="356" width="140" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="x2d-AH-owz"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Create new account">
+                                        <attributes>
+                                            <color key="NSColor" red="0.6470588235294118" green="0.6470588235294118" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Lato-Regular"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -190,11 +206,13 @@
                             <constraint firstItem="blz-Gc-GrR" firstAttribute="top" secondItem="z5c-or-9NJ" secondAttribute="bottom" constant="12" id="4rQ-Xd-TTx"/>
                             <constraint firstItem="uL6-V9-6i0" firstAttribute="top" secondItem="9zX-7k-yWt" secondAttribute="bottom" constant="15" id="FPG-Ea-2Un"/>
                             <constraint firstItem="dle-z1-uOt" firstAttribute="leading" secondItem="cpl-gJ-FXT" secondAttribute="leading" id="NsZ-eW-YXd"/>
+                            <constraint firstItem="PVH-Dy-Jx9" firstAttribute="leading" secondItem="cpl-gJ-FXT" secondAttribute="leading" id="Qsg-wW-bbe"/>
                             <constraint firstItem="uL6-V9-6i0" firstAttribute="leading" secondItem="cpl-gJ-FXT" secondAttribute="leading" id="Xqy-y4-cyg"/>
                             <constraint firstAttribute="trailing" secondItem="uL6-V9-6i0" secondAttribute="trailing" id="ZHo-ZB-lwg"/>
                             <constraint firstItem="blz-Gc-GrR" firstAttribute="leading" secondItem="cpl-gJ-FXT" secondAttribute="leading" id="Zet-sf-GQ1"/>
                             <constraint firstItem="dle-z1-uOt" firstAttribute="top" secondItem="cpl-gJ-FXT" secondAttribute="top" constant="45" id="enS-Hg-d9K"/>
                             <constraint firstItem="z5c-or-9NJ" firstAttribute="top" secondItem="uL6-V9-6i0" secondAttribute="bottom" constant="10" id="gQ3-y6-HxM"/>
+                            <constraint firstItem="PVH-Dy-Jx9" firstAttribute="top" secondItem="blz-Gc-GrR" secondAttribute="bottom" constant="20" id="tm4-sv-4Tf"/>
                             <constraint firstItem="9zX-7k-yWt" firstAttribute="top" secondItem="dle-z1-uOt" secondAttribute="bottom" constant="10" id="yc3-1J-5Oy"/>
                             <constraint firstItem="z5c-or-9NJ" firstAttribute="leading" secondItem="cpl-gJ-FXT" secondAttribute="leading" id="yqt-5k-5xD"/>
                         </constraints>
@@ -219,6 +237,7 @@
                 <outlet property="passwordLine" destination="CrH-TR-flR" id="iHV-jH-6FI"/>
                 <outlet property="passwordTextField" destination="WKC-Rd-k6P" id="57E-hZ-ygB"/>
                 <outlet property="passwordTitle" destination="Rsq-T8-nuL" id="Yw9-IE-ROO"/>
+                <outlet property="registerAccountLb" destination="PVH-Dy-Jx9" id="B06-yl-GHi"/>
                 <outlet property="validationLabel" destination="z5c-or-9NJ" id="En8-Qw-Nem"/>
             </connections>
             <point key="canvasLocation" x="54" y="115.5"/>

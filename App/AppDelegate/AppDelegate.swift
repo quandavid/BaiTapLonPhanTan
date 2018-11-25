@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UINavigationBar.appearance().isHidden = true
         UINavigationBar.appearance().isTranslucent = false
-        window?.rootViewController = ViewControllerFactory.createViewController(type: LoginViewController.self)
+        window?.rootViewController = UINavigationController(rootViewController: ViewControllerFactory.createViewController(type: LoginViewController.self))
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

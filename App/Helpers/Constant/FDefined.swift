@@ -19,5 +19,6 @@ class FDefined: NSObject {
     //dev
     //must change release
     static let hostUrl : String = environment.hostUrl
+    static let SocketUrl: String = environment.socketUrl
     
 }

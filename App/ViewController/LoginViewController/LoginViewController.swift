@@ -39,6 +39,7 @@ class LoginViewController: AppViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        StorageFactory.userStorage.clear()
        
     }
     
@@ -144,6 +145,10 @@ extension LoginViewController: UITableViewDataSource {
             
             cell.loginBlock = { [unowned self] email, password in
                 self.loginController.getUserData(email: email, password: password)
+            }
+            
+            cell.createAccountBlock = {
+                self.pushViewController(RegisterViewController.self)
             }
             
             if let email = self.emailRegister, let password = self.passwordRegister , isRegisted {

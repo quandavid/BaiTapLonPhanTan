@@ -11,6 +11,7 @@ import UIKit
 class LoginCell: AppTableViewCell {
     
     //MARK: Outlet
+    @IBOutlet var registerAccountLb: UILabel!
     @IBOutlet var emailTitle: UILabel!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTitle: UILabel!
@@ -49,7 +50,8 @@ class LoginCell: AppTableViewCell {
         hidePassword.isUserInteractionEnabled = true
         hidePassword.image = isPwHidden ? #imageLiteral(resourceName: "View") : #imageLiteral(resourceName: "hide")
 
-        
+        registerAccountLb.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCreateAccount)))
+        registerAccountLb.isUserInteractionEnabled = true
         
         emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
         
@@ -119,7 +121,7 @@ class LoginCell: AppTableViewCell {
     }
     
     func isValidPassword( testStr: String) -> Bool {
-        return testStr.count > 5
+        return testStr.count > 3
     }
     
     func checkLoginButtonEnable() {
