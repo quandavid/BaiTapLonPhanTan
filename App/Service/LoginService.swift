@@ -52,4 +52,5 @@ enum HandingError: Error {
     case loginFailed
     case badRequest
     case registerFailure
+    case getHistoryFailure
 }

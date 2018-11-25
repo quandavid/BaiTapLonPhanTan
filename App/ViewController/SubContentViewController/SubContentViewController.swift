@@ -29,9 +29,13 @@ class SubContentViewController: AppViewController {
     var meetingId: Int = 0
     let manager = SocketManager(socketURL: URL(string: FDefined.SocketUrl)!, config: [.log(true)])
     
+    @IBOutlet var moreView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fillTextField.delegate = self
+        self.moreView.isHidden = true
+        self.moreView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBackgroundWhenClickMore)))
+        
         fillTextField.addTarget(self, action: #selector(touchToTextField), for: .touchDown)
         self.navigationController?.isNavigationBarHidden = true
         subContentController = ControllerFactory.createController(type: SubContentController.self, for: self) as? SubContentController
@@ -156,7 +160,6 @@ class SubContentViewController: AppViewController {
     
     
     @IBAction func sendAction(_ sender: Any) {
-        print(StorageFactory.userStorage.getAll())
         if let user = StorageFactory.userStorage.getAll()?.first {
             SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": user.userId, "meeting_id": self.meetingId, "subcontent": ["id": 0, "author": user.name, "content": self.fillTextField.text ?? "", "start_time": self.startDate, "end_time": self.endDate]])
             self.fillTextField.text = ""
@@ -165,19 +168,38 @@ class SubContentViewController: AppViewController {
         
     }
     
+    @IBAction func moreAction(_ sender: Any) {
+        if self.moreView.isHidden {
+            self.moreView.isHidden = false
+        } else {
+            self.moreView.isHidden = true
+        }
+    }
+    
+    @objc func tapBackgroundWhenClickMore() {
+        self.moreView.isHidden = true
+    }
     
     @IBAction func importAction(_ sender: Any) {
+        self.moreView.isHidden = true
         let importVC = ImportViewController()
         importVC.meetingId = self.meetingId
         self.navigationController?.pushViewController(importVC, animated: true)
     }
     
     @IBAction func cancelAction(_ sender: Any) {
+        self.moreView.isHidden = true
         self.preview.isHidden = true
     }
     
     @IBAction func handleInviteAction(_ sender: Any) {
+        self.moreView.isHidden = true
         self.invitedView.isHidden = false
+    }
+    
+    @IBAction func showHistoryAction(_ sender: Any) {
+        self.moreView.isHidden = true
+        self.pushViewController(HistoryViewController.self)
     }
     
     @IBAction func handleBackAction(_ sender: Any) {

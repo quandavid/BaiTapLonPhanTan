@@ -33,5 +33,9 @@ import Foundation
     SubContent_invited,
     Preview_PushTextSuccess,
     //MARK: Home page
-    Home_GotData
+    Home_GotData,
+    
+    //MARK: History page
+    History_GetSuccess,
+    History_GetFailure
 }

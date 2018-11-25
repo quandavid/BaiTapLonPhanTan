@@ -11,4 +11,5 @@ import Foundation
 class RequestFactory {
     static let loginRequest = LoginRequest()
     static let meetingRequest = MeetingRequest()
+    static let historyRequest = HistoryRequest()
 }
