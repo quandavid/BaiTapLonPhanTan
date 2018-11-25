@@ -20,11 +20,11 @@ enum EnvType: Int {
 
 class TestEnvironment: EnvironmentProtocol {
     var hostUrl: String {
-        return "http://192.168.12.245:3000/api/"
+        return "http://localhost:3000/api/"
     }
     
     var socketUrl: String {
-        return "http://192.168.12.245:8080/"
+        return "http://localhost:8080/"
     }
     
 }

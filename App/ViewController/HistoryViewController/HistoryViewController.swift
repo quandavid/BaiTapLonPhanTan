@@ -14,7 +14,6 @@ class HistoryViewController: AppViewController {
     var historyController: HistoryController!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initComponent()
         // Do any additional setup after loading the view.
     }
@@ -23,6 +22,11 @@ class HistoryViewController: AppViewController {
         historyController = ControllerFactory.createController(type: HistoryController.self, for: self) as? HistoryController
         initTableView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        historyController.getHistory()
+    }
 
     
     func initTableView() {
@@ -30,8 +34,21 @@ class HistoryViewController: AppViewController {
         self.historyTableView.dataSource = self
         self.historyTableView.showsHorizontalScrollIndicator = false
         self.historyTableView.showsVerticalScrollIndicator = false
-        self.historyTableView.separatorStyle = .none
+//        self.historyTableView.separatorStyle = .none
         registerCell()
+    }
+    
+    override func update(_ command: Command, data: Any?) {
+        switch command {
+        case .History_GetSuccess:
+            self.historyTableView.reloadData()
+            break
+        case .History_GetFailure:
+            UtilManage.alert(message: "get data falure", type: .ok, complete: nil)
+            break
+        default:
+            super.update(command, data: data)
+        }
     }
     
     func registerCell() {
@@ -52,12 +69,13 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = HistoryCell.loadCell(tableView) as! HistoryCell
-        
+        let historyInfo = self.historyController.histories[indexPath.row]
+        cell.textLb?.text = "\(historyInfo.changeBy) has excute \(historyInfo.action) to change \(historyInfo.column) from \(historyInfo.oldValue) to \(historyInfo.nwValue) at \(historyInfo.createdAt)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 100
     }
     
 }
