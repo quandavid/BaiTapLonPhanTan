@@ -3,6 +3,7 @@ PODS:
   - IQKeyboardManagerSwift (6.1.1)
   - Kingfisher (4.10.0)
   - Localize-Swift (2.0.0)
+  - PDFGenerator (3.0.0)
   - Realm (3.10.0):
     - Realm/Headers (= 3.10.0)
   - Realm/Headers (3.10.0)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher
   - Localize-Swift
+  - PDFGenerator (~> 3.0)
   - RealmSwift
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
@@ -35,6 +37,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Kingfisher
     - Localize-Swift
+    - PDFGenerator
     - Realm
     - RealmSwift
     - RxCocoa
@@ -49,6 +52,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
+  PDFGenerator: e00fd09ae8021e304b5672cf11bc28234fc626e7
   Realm: 85ab9e4f779d66f6e9ffeb118dc25b7f130c96ac
   RealmSwift: 69121c8b86d0ae005fb779efdb10e606732e1c74
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
@@ -58,6 +62,6 @@ SPEC CHECKSUMS:
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: d615e8fefed4742a2a1ab8e32d7f9b172d85900d
+PODFILE CHECKSUM: 046c7e45a81e26ee96c6553b34e0fd4bc72edbee
 
 COCOAPODS: 1.5.3

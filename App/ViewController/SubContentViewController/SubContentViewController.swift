@@ -8,6 +8,7 @@
 
 import UIKit
 import SocketIO
+import PDFGenerator
 
 class SubContentViewController: AppViewController {
     @IBOutlet var titleLabel: UILabel!
@@ -28,6 +29,14 @@ class SubContentViewController: AppViewController {
     var subContentController: SubContentController!
     var meetingId: Int = 0
     let manager = SocketManager(socketURL: URL(string: FDefined.SocketUrl)!, config: [.log(true)])
+    
+    var keyTime = "12/12/2018"
+    var keyTitle = ""
+    let keyAddress = "A17 Ta Quang Buu"
+    let keyTptd = ["Nguyen Van An", "Tran Thu Ha", "Ha Van Thon"]
+    var keyBoss = "Ta Minh Tuan"
+    let keyAssistant = "Tran Van Sang"
+    let keyContent = ["afdsafadsf", "sdfsdfdsfdsf","sdfdsfdsfd"]
     
     @IBOutlet var moreView: UIView!
     override func viewDidLoad() {
@@ -92,6 +101,40 @@ class SubContentViewController: AppViewController {
         
     }
     
+    @IBAction func exportPDFAction(_ sender: Any) {
+        let textView = UITextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        textView.text = self.generatorPDF()
+        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("sample1.pdf"))
+        // outputs as Data
+        do {
+            let data = try PDFGenerator.generated(by: [textView])
+            try data.write(to: dst, options: .atomic)
+            openPDFViewer(dst)
+        } catch (let error) {
+            print(error)
+        }
+    }
+    
+    
+    func formatSubModelToText(model: SubContentModel) -> String {
+        return "\(model.author) speaked \(model.content) from \(self.convertDate(date: model.startTime)) to \(self.convertDate(date: model.endTime))"
+    }
+    
+    func generatorPDF() -> String {
+        let content = Util.readTextFile(name: "template", type: "txt")
+        let ct = self.subContentController.contents.map {formatSubModelToText(model: $0)}.reduce("") { $0 + "\n" + $1}
+        let authors = Array(Set(self.subContentController.contents.map { $0.author}))
+        let tptd = authors.reduce("") {$0 + "\n" + $1 }
+        let result = content.replacingOccurrences(of: "key_time", with: self.keyTime).replacingOccurrences(of: "key_address", with: keyAddress).replacingOccurrences(of: "key_boss", with: keyBoss).replacingOccurrences(of: "key_assistant", with: keyAssistant).replacingOccurrences(of: "key_tptd", with: tptd).replacingOccurrences(of: "key_content", with: ct).replacingOccurrences(of: "key_title", with: keyTitle)
+        return result
+    }
+    
+    func openPDFViewer(_ pdfPath: URL) {
+//        let url = URL(fileURLWithPath: pdfPath)
+        let vc = PDFPreViewVC()
+        vc.setupWithURL(pdfPath)
+        present(vc, animated: true, completion: nil)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -103,6 +146,9 @@ class SubContentViewController: AppViewController {
         if let meeting = self.initData["meetingInfo"] as? MeetingModel {
             self.titleLabel.text = meeting.title
             self.meetingId = meeting.meetingId
+            self.keyTime = meeting.createdAt
+            self.keyTitle = meeting.title
+            self.keyBoss = meeting.userName
         }
         SocketIOManager.sharedInstance.socketIOClient.connect()
     }
@@ -199,7 +245,7 @@ class SubContentViewController: AppViewController {
     
     @IBAction func showHistoryAction(_ sender: Any) {
         self.moreView.isHidden = true
-        self.pushViewController(HistoryViewController.self)
+        self.pushViewController(HistoryViewController.self, data: ["meetingId": meetingId])
     }
     
     @IBAction func handleBackAction(_ sender: Any) {
@@ -250,9 +296,6 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.subContentController.contents[indexPath.row].flag == 1 {
-            return 85
-        }
         return 130
     }
     
@@ -282,6 +325,26 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
             let subContent = self.subContentController.contents[indexPath.row]
             SocketIOManager.sharedInstance.socketIOClient.emit("delete_subcontent", ["user_id": subContent.userId, "meeting_id": subContent.meetingId, "subcontent": ["id": subContent.subId, "author": subContent.author, "content": subContent.content, "start_time": subContent.startTime, "end_time": subContent.endTime]])
         }
+    }
+    
+    func convertDate(date: String) -> String {
+        guard date != "" else {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        var someDate = dateFormatter.date(from: date)
+        if someDate == nil {
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ssZ"
+            someDate = dateFormatter.date(from: date)
+        }
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.dateFormat = "HH:mm:ss"
+        let strDay = dateFormatter2.string(from: someDate!)
+        let dateInfo = "\(strDay)"
+        
+        return dateInfo
     }
     
     @objc func touchToTextField( textField: UITextField) {

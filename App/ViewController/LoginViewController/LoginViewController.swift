@@ -50,6 +50,7 @@ class LoginViewController: AppViewController {
     }
     
     func initComponent() {
+        self.navigationController?.isNavigationBarHidden = true
         loginController = ControllerFactory.createController(type: LoginController.self, for: self) as? LoginController
     }
     

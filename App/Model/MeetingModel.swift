@@ -15,6 +15,7 @@ class MeetingModel: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var userCreatedId: Int = 0
     @objc dynamic var createdAt: String = ""
+    @objc dynamic var userName: String = ""
     
     convenience init(json: JSON) {
         self.init()
@@ -25,5 +26,6 @@ class MeetingModel: Object {
         self.title = json["title"].stringValue
         self.userCreatedId = json["user_created_id"].intValue
         self.createdAt = json["created_at"].stringValue
+        self.userName = json["user_name"].stringValue
     }
 }

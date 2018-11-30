@@ -11,10 +11,11 @@ import Foundation
 class HistoryController: AppController {
     let historyService = HistoryService()
     var histories: [HistoryModel] = []
+    var meetingId: Int = 0
     func getHistory() {
         historyService.getHistory().subscribe(onNext: {[weak self] (histories) in
             guard let this = self else { return }
-            this.histories = histories
+            this.histories = histories.filter {$0.meetingId == self?.meetingId}
             this.notifyObservers(.History_GetSuccess)
             }, onError: {[weak self] (error) in
                 guard let this = self else { return }

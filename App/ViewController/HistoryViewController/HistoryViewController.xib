@@ -22,46 +22,48 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7B-79-I7c">
-                    <rect key="frame" x="0.0" y="20" width="375" height="64"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXr-5e-GtD">
-                            <rect key="frame" x="159" y="21.5" width="57" height="21"/>
+                            <rect key="frame" x="159" y="31.5" width="57" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lF6-1e-xwX">
-                            <rect key="frame" x="8" y="17" width="34" height="30"/>
-                            <state key="normal" title="Back"/>
+                            <rect key="frame" x="8" y="27" width="34" height="30"/>
+                            <state key="normal" title="Back">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
                             <connections>
                                 <action selector="backAction:" destination="-1" eventType="touchUpInside" id="kes-AF-TSD"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.35686274509999999" green="0.20392156859999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="lF6-1e-xwX" firstAttribute="centerY" secondItem="r7B-79-I7c" secondAttribute="centerY" id="0aS-I0-els"/>
+                        <constraint firstItem="lF6-1e-xwX" firstAttribute="centerY" secondItem="r7B-79-I7c" secondAttribute="centerY" constant="10" id="0aS-I0-els"/>
                         <constraint firstAttribute="height" constant="64" id="IAF-gZ-eaF"/>
                         <constraint firstItem="lF6-1e-xwX" firstAttribute="leading" secondItem="r7B-79-I7c" secondAttribute="leading" constant="8" id="YnZ-pc-Hji"/>
                         <constraint firstItem="bXr-5e-GtD" firstAttribute="centerX" secondItem="r7B-79-I7c" secondAttribute="centerX" id="ihP-mE-Fgr"/>
-                        <constraint firstItem="bXr-5e-GtD" firstAttribute="centerY" secondItem="r7B-79-I7c" secondAttribute="centerY" id="l4P-wC-nOT"/>
+                        <constraint firstItem="bXr-5e-GtD" firstAttribute="centerY" secondItem="r7B-79-I7c" secondAttribute="centerY" constant="10" id="l4P-wC-nOT"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NeE-S8-Fxw">
-                    <rect key="frame" x="0.0" y="84" width="375" height="1"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="1"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="eX3-8t-kcY"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aYv-FX-Eug">
-                    <rect key="frame" x="0.0" y="85" width="375" height="582"/>
+                    <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="r7B-79-I7c" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="DTh-YD-jZH"/>
+                <constraint firstItem="r7B-79-I7c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="D1y-ey-noW"/>
                 <constraint firstItem="r7B-79-I7c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="E9L-J0-Vad"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aYv-FX-Eug" secondAttribute="bottom" id="Jy8-51-jAe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aYv-FX-Eug" secondAttribute="trailing" id="Lla-HC-qWb"/>

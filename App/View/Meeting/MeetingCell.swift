@@ -9,6 +9,7 @@
 import UIKit
 
 class MeetingCell: AppTableViewCell {
+    @IBOutlet var meetingImg: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var createdLabel: UILabel!
     
@@ -22,6 +23,8 @@ class MeetingCell: AppTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        meetingImg.layer.cornerRadius = 30
+        meetingImg.layer.masksToBounds = true
     }
     
     func convertDate(date: String) -> String {
@@ -38,12 +41,13 @@ class MeetingCell: AppTableViewCell {
             someDate = dateFormatter.date(from: date)
         }
         let dateFormatter2 = DateFormatter()
-        dateFormatter2.dateFormat = "MMM"
+        dateFormatter2.dateFormat = "MM"
         let strMonth = dateFormatter2.string(from: someDate!)
         dateFormatter2.dateFormat = "dd"
+        let strDate = dateFormatter2.string(from: someDate!)
+        dateFormatter2.dateFormat = "yyyy"
         let strYear = dateFormatter2.string(from: someDate!)
-        
-        let dateInfo = "\(strMonth) \(strYear)"
+        let dateInfo = "\(strDate)/\(strMonth)/\(strYear)"
         
         return dateInfo
     }

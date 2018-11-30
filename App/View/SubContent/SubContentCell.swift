@@ -14,24 +14,25 @@ class SubContentCell: AppTableViewCell {
     @IBOutlet var authorName: UILabel!
     
     @IBOutlet var createTime: UILabel!
-    @IBOutlet var endTime: UILabel!
-    @IBOutlet var status: UIView!
+    @IBOutlet var status: UILabel!
     
     @IBOutlet var content: UITextView!
     
     var subContent: SubContentModel! {
         didSet {
-            self.authorName.text = "Author: \(subContent.author)"
-            self.createTime.text = "Start time: \(convertDate(date: subContent.startTime))"
-            self.endTime.text = "End time: \(convertDate(date: subContent.endTime))"
+            self.authorName.text = "By \(subContent.author)"
+            self.createTime.text = "\(getDate(date: subContent.startTime)) From \(convertDate(date: subContent.startTime)) To \(convertDate(date: subContent.endTime))"
             self.content.text = subContent.content
             DispatchQueue.main.async {
                 if self.subContent.flag == 1 {
-                    self.status.backgroundColor = .red
+                    self.content.isEditable = false
+                    self.status.text = "Record is conflicting"
                 } else if self.subContent.isFull == 0 {
-                    self.status.backgroundColor = .blue
+                    self.content.isEditable = true
+                    self.status.text = "Record is missing content"
                 } else {
-                    self.status.backgroundColor = .white
+                    self.content.isEditable = true
+                    self.status.text = ""
                 }
             }
            
@@ -42,10 +43,8 @@ class SubContentCell: AppTableViewCell {
         super.awakeFromNib()
         content.delegate = self
         self.selectionStyle = .none
-        self.status.layer.cornerRadius = 13
-        self.status.layer.masksToBounds = true
         content.layer.masksToBounds = true
-        content.layer.borderWidth = 2
+        content.layer.borderWidth = 1
         content.layer.borderColor = UIColor.groupTableViewBackground.cgColor
         content.layer.cornerRadius = 4
         // Initialization code
@@ -64,13 +63,31 @@ class SubContentCell: AppTableViewCell {
             someDate = dateFormatter.date(from: date)
         }
         let dateFormatter2 = DateFormatter()
+        dateFormatter2.dateFormat = "HH:mm:ss"
+        let strDay = dateFormatter2.string(from: someDate!)
+        let dateInfo = "\(strDay)"
+        
+        return dateInfo
+    }
+    
+    func getDate(date: String) -> String {
+        guard date != "" else {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        var someDate = dateFormatter.date(from: date)
+        if someDate == nil {
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ssZ"
+            someDate = dateFormatter.date(from: date)
+        }
+        let dateFormatter2 = DateFormatter()
         dateFormatter2.dateFormat = "MMM"
         let strMonth = dateFormatter2.string(from: someDate!)
         dateFormatter2.dateFormat = "dd"
         let strYear = dateFormatter2.string(from: someDate!)
-        dateFormatter2.dateFormat = "HH:mm:ss"
-        let strDay = dateFormatter2.string(from: someDate!)
-        let dateInfo = "\(strYear) \(strMonth) \(strDay)"
+        let dateInfo = "\(strYear) \(strMonth)"
         
         return dateInfo
     }

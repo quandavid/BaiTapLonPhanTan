@@ -25,34 +25,36 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select File " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYS-nd-8XQ">
-                            <rect key="frame" x="145" y="21.5" width="85.5" height="21"/>
+                            <rect key="frame" x="145" y="31.5" width="85.5" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ToI-sO-hgO">
-                            <rect key="frame" x="0.0" y="62" width="375" height="2"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="2" id="Pii-me-i6v"/>
+                                <constraint firstAttribute="height" constant="1" id="Pii-me-i6v"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XME-iA-mI7">
-                            <rect key="frame" x="10" y="16" width="36" height="32"/>
+                            <rect key="frame" x="10" y="26" width="36" height="32"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <state key="normal" title="Back"/>
+                            <state key="normal" title="Back">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
                             <connections>
                                 <action selector="backAction:" destination="-1" eventType="touchUpInside" id="LZC-4Q-fH7"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.35686274509999999" green="0.20392156859999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="FYS-nd-8XQ" firstAttribute="centerX" secondItem="Fkn-Qu-fUD" secondAttribute="centerX" id="D0p-c9-jiI"/>
                         <constraint firstAttribute="trailing" secondItem="ToI-sO-hgO" secondAttribute="trailing" id="Dxo-A8-F6M"/>
-                        <constraint firstItem="XME-iA-mI7" firstAttribute="centerY" secondItem="Fkn-Qu-fUD" secondAttribute="centerY" id="GO4-dC-xpX"/>
+                        <constraint firstItem="XME-iA-mI7" firstAttribute="centerY" secondItem="Fkn-Qu-fUD" secondAttribute="centerY" constant="10" id="GO4-dC-xpX"/>
                         <constraint firstItem="XME-iA-mI7" firstAttribute="leading" secondItem="Fkn-Qu-fUD" secondAttribute="leading" constant="10" id="drl-Zc-COu"/>
-                        <constraint firstItem="FYS-nd-8XQ" firstAttribute="centerY" secondItem="Fkn-Qu-fUD" secondAttribute="centerY" id="e9g-RL-7S2"/>
+                        <constraint firstItem="FYS-nd-8XQ" firstAttribute="centerY" secondItem="Fkn-Qu-fUD" secondAttribute="centerY" constant="10" id="e9g-RL-7S2"/>
                         <constraint firstItem="ToI-sO-hgO" firstAttribute="leading" secondItem="Fkn-Qu-fUD" secondAttribute="leading" id="qwy-xp-ZAg"/>
                         <constraint firstAttribute="bottom" secondItem="ToI-sO-hgO" secondAttribute="bottom" id="wHk-q1-cn4"/>
                         <constraint firstAttribute="height" constant="64" id="wwd-MQ-tXJ"/>

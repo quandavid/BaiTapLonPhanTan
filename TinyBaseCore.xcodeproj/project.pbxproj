@@ -86,6 +86,9 @@
 		7E54A22E219048500027E8F0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E54A22D219048500027E8F0 /* StringExtension.swift */; };
 		7E54A230219052930027E8F0 /* SubContents2.json in Resources */ = {isa = PBXBuildFile; fileRef = 7E54A22F219052930027E8F0 /* SubContents2.json */; };
 		7E6EF9A2216F41E900FC3522 /* AppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6EF9A1216F41E900FC3522 /* AppCollectionViewCell.swift */; };
+		7E7BA51A21AE89D50018DC02 /* template.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7E7BA51921AE89D50018DC02 /* template.txt */; };
+		7E7BA51E21AE8B090018DC02 /* PDFPreViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7BA51C21AE8B090018DC02 /* PDFPreViewVC.swift */; };
+		7E7BA51F21AE8B090018DC02 /* PDFPreViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E7BA51D21AE8B090018DC02 /* PDFPreViewVC.xib */; };
 		7E9279C9215FD90700089EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9279C8215FD90700089EFD /* AppDelegate.swift */; };
 		7E9279CE215FD90700089EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9279CC215FD90700089EFD /* Main.storyboard */; };
 		7E9279D0215FD90900089EFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E9279CF215FD90900089EFD /* Assets.xcassets */; };
@@ -199,6 +202,9 @@
 		7E54A22D219048500027E8F0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		7E54A22F219052930027E8F0 /* SubContents2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubContents2.json; sourceTree = "<group>"; };
 		7E6EF9A1216F41E900FC3522 /* AppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCollectionViewCell.swift; sourceTree = "<group>"; };
+		7E7BA51921AE89D50018DC02 /* template.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = template.txt; sourceTree = "<group>"; };
+		7E7BA51C21AE8B090018DC02 /* PDFPreViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreViewVC.swift; sourceTree = "<group>"; };
+		7E7BA51D21AE8B090018DC02 /* PDFPreViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFPreViewVC.xib; sourceTree = "<group>"; };
 		7E9279C5215FD90700089EFD /* TinyBaseCore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyBaseCore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9279C8215FD90700089EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E9279CD215FD90700089EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -518,6 +524,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		7E7BA51B21AE8AEA0018DC02 /* PreviewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E7BA51C21AE8B090018DC02 /* PDFPreViewVC.swift */,
+				7E7BA51D21AE8B090018DC02 /* PDFPreViewVC.xib */,
+			);
+			path = PreviewController;
+			sourceTree = "<group>";
+		};
 		7E9279BC215FD90600089EFD = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +573,7 @@
 		7E9279FE215FDA2200089EFD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7E7BA51B21AE8AEA0018DC02 /* PreviewController */,
 				7E0F1D2021AAA83300989E63 /* HistoryViewController */,
 				7EB4EBA921A90E10005B35C6 /* ResolveConfligViewController */,
 				7E2F641821A57B7E00A9547A /* PreviewViewController */,
@@ -620,6 +636,7 @@
 		7E927A19215FDA9500089EFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7E7BA51921AE89D50018DC02 /* template.txt */,
 				7E9279CC215FD90700089EFD /* Main.storyboard */,
 				7E9279CF215FD90900089EFD /* Assets.xcassets */,
 				7E9279D1215FD90900089EFD /* LaunchScreen.storyboard */,
@@ -773,10 +790,12 @@
 				7E388F6C218CE2F30081BDDB /* MeetingCell.xib in Resources */,
 				7E9279D0215FD90900089EFD /* Assets.xcassets in Resources */,
 				7E0F1D2421AAA87A00989E63 /* HistoryViewController.xib in Resources */,
+				7E7BA51A21AE89D50018DC02 /* template.txt in Resources */,
 				7E27747D21AA5EEA00B8C74D /* RegisterViewController.xib in Resources */,
 				7E2A9E9B218ACEE10054D409 /* LoginViewController.xib in Resources */,
 				7E2F641C21A57BA500A9547A /* PreviewViewController.xib in Resources */,
 				7E0F1D3121AAAE4800989E63 /* HistoryCell.xib in Resources */,
+				7E7BA51F21AE8B090018DC02 /* PDFPreViewVC.xib in Resources */,
 				7E2A9EAA218ACEE10054D409 /* MeetingViewController.xib in Resources */,
 				7E54A230219052930027E8F0 /* SubContents2.json in Resources */,
 				7E2A9E97218ACEC70054D409 /* TopLoginCell.xib in Resources */,
@@ -803,6 +822,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/PDFGenerator/PDFGenerator.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -818,6 +838,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PDFGenerator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -892,6 +913,7 @@
 				7E927A05215FDA2E00089EFD /* StorageFactory.swift in Sources */,
 				7EFC33CA216CBCD10017C5A3 /* HomeService.swift in Sources */,
 				7E388FD8218CF2F50081BDDB /* Observer.swift in Sources */,
+				7E7BA51E21AE8B090018DC02 /* PDFPreViewVC.swift in Sources */,
 				7EFC33C1216CAABA0017C5A3 /* HomeViewController.swift in Sources */,
 				7E2A9E96218ACEC70054D409 /* LoginCell.swift in Sources */,
 				7E388FD0218CF2F50081BDDB /* Array.swift in Sources */,

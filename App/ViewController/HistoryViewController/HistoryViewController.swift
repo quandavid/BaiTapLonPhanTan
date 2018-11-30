@@ -12,14 +12,19 @@ class HistoryViewController: AppViewController {
 
     @IBOutlet var historyTableView: UITableView!
     var historyController: HistoryController!
+    var meetingId: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let meetingId = initData["meetingId"] as? Int {
+            self.meetingId = meetingId
+        }
         initComponent()
         // Do any additional setup after loading the view.
     }
     
     func initComponent() {
         historyController = ControllerFactory.createController(type: HistoryController.self, for: self) as? HistoryController
+        historyController.meetingId = self.meetingId
         initTableView()
     }
     
@@ -70,7 +75,11 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = HistoryCell.loadCell(tableView) as! HistoryCell
         let historyInfo = self.historyController.histories[indexPath.row]
-        cell.textLb?.text = "\(historyInfo.changeBy) has excute \(historyInfo.action) to change \(historyInfo.column) from \(historyInfo.oldValue) to \(historyInfo.nwValue) at \(historyInfo.createdAt)"
+        let string = "\(historyInfo.changeBy) has excute \(historyInfo.action) to change \(historyInfo.column) from \(historyInfo.oldValue) to \(historyInfo.nwValue) at \(historyInfo.createdAt)"
+        let range = (string as NSString).range(of: historyInfo.changeBy)
+        let attributedString = NSMutableAttributedString(string:string)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red , range: range)
+        cell.textLb.attributedText = attributedString
         return cell
     }
     

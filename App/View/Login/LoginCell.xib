@@ -43,7 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please fill in your account info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zX-7k-yWt">
-                                <rect key="frame" x="0.0" y="94" width="185.5" height="17"/>
+                                <rect key="frame" x="0.0" y="94" width="187" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="IdX-i1-VgN"/>
                                 </constraints>
@@ -65,12 +65,12 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7L-2k-ch9">
-                                                <rect key="frame" x="0.0" y="0.0" width="28.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="RRt-RF-D8h"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                <color key="textColor" red="0.96862745098039216" green="0.52549019607843139" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.35686274509803922" green="0.20392156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" placeholder="oliver@" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ySD-xf-d3S">
@@ -106,12 +106,12 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsq-T8-nuL">
-                                                <rect key="frame" x="0.0" y="0.0" width="50.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="oEa-q9-Ex6"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                <color key="textColor" red="0.96862745098039216" green="0.52549019607843139" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.35686274509803922" green="0.20392156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WKC-Rd-k6P">
@@ -160,7 +160,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid email or password!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5c-or-9NJ">
-                                <rect key="frame" x="0.0" y="252" width="128.5" height="20"/>
+                                <rect key="frame" x="0.0" y="252" width="140" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="In1-R9-zka"/>
                                 </constraints>
@@ -170,20 +170,20 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blz-Gc-GrR">
                                 <rect key="frame" x="0.0" y="284" width="378" height="52"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.35686274509803922" green="0.20392156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="dFl-kY-Tm4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="SIGN IN">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="loginAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dhX-7A-O60"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVH-Dy-Jx9">
-                                <rect key="frame" x="0.0" y="356" width="140" height="20"/>
+                                <rect key="frame" x="0.0" y="356" width="144" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="x2d-AH-owz"/>
                                 </constraints>

@@ -19,7 +19,7 @@ target 'TinyBaseCore' do
   pod 'Socket.IO-Client-Swift', '~> 13.3.0'
   #pod 'FoldingCell'
   pod 'RealmSwift'
-  
+  pod 'PDFGenerator', '~> 3.0'
   #Language
   pod 'Localize-Swift'
 

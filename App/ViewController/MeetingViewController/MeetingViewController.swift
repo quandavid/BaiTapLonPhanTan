@@ -14,6 +14,8 @@ class MeetingViewController: AppViewController {
     @IBOutlet var meetingTableView: UITableView!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var createButton: UIButton!
+    @IBOutlet var createMeetinView: UIView!
+    @IBOutlet var cancelButton: UIButton!
     var meetingController: MeetingController!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +26,31 @@ class MeetingViewController: AppViewController {
     func initComponent() {
         meetingController = ControllerFactory.createController(type: MeetingController.self, for: self) as? MeetingController
         self.navigationController?.isNavigationBarHidden = true
+        self.createMeetinView.layer.masksToBounds = true
+        self.createMeetinView.layer.cornerRadius = 5
+        self.createButton.layer.masksToBounds = true
+        self.createButton.layer.cornerRadius = 4
+        self.cancelButton.layer.masksToBounds = true
+        self.cancelButton.layer.cornerRadius = 4
         initTableView()
         initCreateView()
     }
     
     func initCreateView() {
         createView.isHidden = true
+        createView.isUserInteractionEnabled = true
+        createView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapCreateView)))
         titleTextField.delegate = self
         
+    }
+    
+    @objc func tapCreateView() {
+        createView.isHidden = true
+    }
+    
+    
+    @IBAction func handleCancelPopup(_ sender: Any) {
+        createView.isHidden = true
     }
     
     func initTableView() {

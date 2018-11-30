@@ -155,7 +155,7 @@ class RegisterCell: AppTableViewCell {
                 signUpButton.setTitleColor(.black, for: .normal)
             } else {
                 isAllowRegister = true
-                signUpButton.backgroundColor = UIColor.colorFromHexString(hex: "F78600")
+                signUpButton.backgroundColor = FDefined.appColor
                 signUpButton.setTitleColor(.white, for: .normal)
             }
         } else {
@@ -225,23 +225,23 @@ extension RegisterCell: UITextFieldDelegate {
         }
         if textField == emailTextField {
             emailTitle.isHidden = false
-            emailLine.backgroundColor = UIColor.colorFromHexString(hex: "F78600")
-            emailTitle.textColor = UIColor.colorFromHexString(hex: "F78600")
+            emailLine.backgroundColor = FDefined.appColor
+            emailTitle.textColor = FDefined.appColor
             if textField.text == "Email" {
                 textField.text = nil
             }
         } else if textField == passwordTextField {
             passwordTitle.isHidden = false
-            passwordLine.backgroundColor = UIColor.colorFromHexString(hex: "F78600")
-            passwordTitle.textColor = UIColor.colorFromHexString(hex: "F78600")
+            passwordLine.backgroundColor = FDefined.appColor
+            passwordTitle.textColor = FDefined.appColor
             if textField.text == "Password" {
                 textField.text = nil
                 textField.isSecureTextEntry = true
             }
         } else if textField == rePasswordTextField {
             rePasswordTitle.isHidden = false
-            rePasswordLine.backgroundColor = UIColor.colorFromHexString(hex: "F78600")
-            rePasswordTitle.textColor = UIColor.colorFromHexString(hex: "F78600")
+            rePasswordLine.backgroundColor = FDefined.appColor
+            rePasswordTitle.textColor = FDefined.appColor
             if textField.text == "Confirm your password" {
                 textField.text = nil
                 textField.isSecureTextEntry = true

@@ -1,0 +1,19 @@
+                            CỘNG HÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM
+                                Độc lập - Tự do - Hạnh phúc
+                                    -------------------
+                                BIÊN BẢN CUỘC HỌP ..key_title..
+- Thời gian bắt đầu : key_time
+- Địa điểm : key_address
+- Thành phần tham dự:key_tptd
+
+- Chủ trì(chủ toạ) : key_boss
+- Thư ký(người ghi biên bản): key_assistant
+- Nội dung(Theo diễn biến cuộc họp):
+key_content
+
+Cuộc họp kết thúc vào ... giờ ... ,ngày ... tháng ... năm ...
+
+            Thư ký                          Chủ toạ
+            (Chữ ký)                        (Chữ ký,dấu(nếu có))
+            Họ và tên                       Họ và tên
+

@@ -20,5 +20,6 @@ class FDefined: NSObject {
     //must change release
     static let hostUrl : String = environment.hostUrl
     static let SocketUrl: String = environment.socketUrl
+    static let appColor: UIColor = UIColor(red: 91/255, green: 52/255, blue: 255/255, alpha: 1)
     
 }

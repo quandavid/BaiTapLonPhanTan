@@ -132,7 +132,7 @@ class LoginCell: AppTableViewCell {
                 loginButton.setTitleColor(.black, for: .normal)
             } else {
                 isAllowLogin = true
-                loginButton.backgroundColor = UIColor.colorFromHexString(hex: "F78600")
+                loginButton.backgroundColor = FDefined.appColor
                 loginButton.setTitleColor(.white, for: .normal)
             }
         } else {
@@ -174,15 +174,15 @@ extension LoginCell: UITextFieldDelegate {
         }
         if textField == emailTextField {
             emailTitle.isHidden = false
-            emailLine.backgroundColor = UIColor.colorFromHexString(hex: "F78600")
-            emailTitle.textColor = UIColor.colorFromHexString(hex: "F78600")
+            emailLine.backgroundColor = FDefined.appColor
+            emailTitle.textColor = FDefined.appColor
             if textField.text == "Email" {
                 textField.text = nil
             }
         } else if textField == passwordTextField {
             passwordTitle.isHidden = false
-            passwordLine.backgroundColor = UIColor.colorFromHexString(hex: "F78600")
-            passwordTitle.textColor = UIColor.colorFromHexString(hex: "F78600")
+            passwordLine.backgroundColor = FDefined.appColor
+            passwordTitle.textColor = FDefined.appColor
             if isPwHidden {
                 textField.isSecureTextEntry = true
             } else {
