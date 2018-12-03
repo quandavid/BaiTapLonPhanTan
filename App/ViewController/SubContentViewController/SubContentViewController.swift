@@ -207,7 +207,16 @@ class SubContentViewController: AppViewController {
     
     @IBAction func sendAction(_ sender: Any) {
         if let user = StorageFactory.userStorage.getAll()?.first {
-            SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": user.userId, "meeting_id": self.meetingId, "subcontent": ["id": 0, "author": user.name, "content": self.fillTextField.text ?? "", "start_time": self.startDate, "end_time": self.endDate]])
+            let placeText = self.fillTextField.text?.components(separatedBy: "-")
+            if let arr = placeText {
+                if arr.count >= 2 {
+                SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": user.userId, "meeting_id": self.meetingId, "subcontent": ["id": 0, "author": arr[0], "content": arr[1], "start_time": self.startDate, "end_time": self.endDate]])
+                } else {
+                    SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": user.userId, "meeting_id": self.meetingId, "subcontent": ["id": 0, "author": user.name, "content": self.fillTextField.text ?? "", "start_time": self.startDate, "end_time": self.endDate]])
+                }
+            }
+            
+            
             self.fillTextField.text = ""
             self.fillTextField.resignFirstResponder()
         }
