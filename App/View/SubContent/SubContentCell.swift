@@ -25,13 +25,13 @@ class SubContentCell: AppTableViewCell {
             self.content.text = subContent.content
             DispatchQueue.main.async {
                 if self.subContent.flag == 1 {
-                    self.content.isEditable = false
+//                    self.content.isEditable = false
                     self.status.text = "Record is conflicting"
                 } else if self.subContent.isFull == 0 {
-                    self.content.isEditable = true
+//                    self.content.isEditable = true
                     self.status.text = "Record is missing content"
                 } else {
-                    self.content.isEditable = true
+//                    self.content.isEditable = true
                     self.status.text = ""
                 }
             }

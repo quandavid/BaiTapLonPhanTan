@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SocketIO
 
 class LoginViewController: AppViewController {
     //MARK: Outlet
@@ -27,10 +28,7 @@ class LoginViewController: AppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initData()
-//        configureSocketIO()
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

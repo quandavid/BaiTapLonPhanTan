@@ -35,7 +35,7 @@ class SubContentViewController: AppViewController {
     let keyAddress = "A17 Ta Quang Buu"
     let keyTptd = ["Nguyen Van An", "Tran Thu Ha", "Ha Van Thon"]
     var keyBoss = "Ta Minh Tuan"
-    let keyAssistant = "Tran Van Sang"
+    var keyAssistant = "Tran Van Sang"
     let keyContent = ["afdsafadsf", "sdfsdfdsfdsf","sdfdsfdsfd"]
     
     @IBOutlet var moreView: UIView!
@@ -149,12 +149,16 @@ class SubContentViewController: AppViewController {
             self.keyTime = meeting.createdAt
             self.keyTitle = meeting.title
             self.keyBoss = meeting.userName
+            if let user = StorageFactory.userStorage.getAll()?.first {
+                self.keyAssistant = user.name
+            }
         }
         SocketIOManager.sharedInstance.socketIOClient.connect()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        SocketIOManager.sharedInstance.socketIOClient.disconnect()
     }
     
     func initComponent() {

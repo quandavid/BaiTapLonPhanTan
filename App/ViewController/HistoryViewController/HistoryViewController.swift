@@ -7,19 +7,52 @@
 //
 
 import UIKit
+import SocketIO
 
 class HistoryViewController: AppViewController {
 
     @IBOutlet var historyTableView: UITableView!
     var historyController: HistoryController!
     var meetingId: Int = 0
+    let manager = SocketManager(socketURL: URL(string: FDefined.SocketUrl)!, config: [.log(true)])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let meetingId = initData["meetingId"] as? Int {
             self.meetingId = meetingId
         }
         initComponent()
+        self.configureSocketIO()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        SocketIOManager.sharedInstance.socketIOClient.connect()
+        
+    }
+    
+    
+    
+    func configureSocketIO() {
+        
+        SocketIOManager.sharedInstance.socketIOClient = manager.defaultSocket
+        
+        SocketIOManager.sharedInstance.socketIOClient.on(clientEvent: .connect) {data, ack in
+            print("socket connected")
+        }
+        
+        SocketIOManager.sharedInstance.socketIOClient.on("edit_subcontent") {data, ack in
+            self.historyController.getHistory()
+        }
+        
+        SocketIOManager.sharedInstance.socketIOClient.on("delete_subcontent") {data, ack in
+            self.historyController.getHistory()
+        }
+        
+        SocketIOManager.sharedInstance.socketIOClient.on("add_subcontent") { (data, ack) in
+            self.historyController.getHistory()
+        }
     }
     
     func initComponent() {
