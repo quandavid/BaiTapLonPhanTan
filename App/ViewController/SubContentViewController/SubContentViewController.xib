@@ -211,14 +211,28 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD PEOPLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kx-3h-iLy">
                                             <rect key="frame" x="99" y="15" width="102" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-0Q-9sS">
+                                            <rect key="frame" x="270" y="0.0" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="RuR-Rd-GKo"/>
+                                                <constraint firstAttribute="height" constant="30" id="zZC-Uh-Vo9"/>
+                                            </constraints>
+                                            <state key="normal" image="close">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="handleCancelInvite:" destination="-1" eventType="touchUpInside" id="PX2-KF-OA5"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.35686274509999999" green="0.20392156859999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="8Kx-3h-iLy" firstAttribute="centerY" secondItem="chA-RH-kos" secondAttribute="centerY" id="0dc-Tj-9Ud"/>
+                                        <constraint firstItem="sZM-0Q-9sS" firstAttribute="top" secondItem="chA-RH-kos" secondAttribute="top" id="Azk-S8-6UT"/>
                                         <constraint firstAttribute="height" constant="50" id="Szg-hd-087"/>
+                                        <constraint firstAttribute="trailing" secondItem="sZM-0Q-9sS" secondAttribute="trailing" id="lde-kC-JUX"/>
                                         <constraint firstItem="8Kx-3h-iLy" firstAttribute="centerX" secondItem="chA-RH-kos" secondAttribute="centerX" id="ruG-QU-nTH"/>
                                     </constraints>
                                 </view>
@@ -288,59 +302,34 @@
                                         <constraint firstItem="4hQ-Ec-I7y" firstAttribute="width" secondItem="ld8-gn-OrX" secondAttribute="width" id="xXG-59-OlR"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQn-1I-5GN">
-                                    <rect key="frame" x="85" y="210" width="130" height="40"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DDv-v2-drr">
-                                            <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2n-ug-Drh">
-                                                    <rect key="frame" x="0.0" y="5" width="60" height="30"/>
-                                                    <color key="backgroundColor" red="0.35686274509999999" green="0.20392156859999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="ADD">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="handleOkInvite:" destination="-1" eventType="touchUpInside" id="TmR-hB-n6C"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-0Q-9sS">
-                                                    <rect key="frame" x="70" y="5" width="60" height="30"/>
-                                                    <color key="backgroundColor" red="0.35686274509999999" green="0.20392156859999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="CANCEL">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="handleCancelInvite:" destination="-1" eventType="touchUpInside" id="PX2-KF-OA5"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2n-ug-Drh">
+                                    <rect key="frame" x="0.0" y="210" width="300" height="40"/>
+                                    <color key="backgroundColor" red="0.35686274509999999" green="0.20392156859999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="DDv-v2-drr" firstAttribute="top" secondItem="iQn-1I-5GN" secondAttribute="top" id="2Rf-co-Oxf"/>
-                                        <constraint firstAttribute="height" constant="40" id="Jdk-Mk-kde"/>
-                                        <constraint firstItem="DDv-v2-drr" firstAttribute="leading" secondItem="iQn-1I-5GN" secondAttribute="leading" id="ZG5-wE-bhz"/>
-                                        <constraint firstAttribute="bottom" secondItem="DDv-v2-drr" secondAttribute="bottom" id="fSr-hh-8Ug"/>
-                                        <constraint firstAttribute="width" constant="130" id="ttp-eL-KO0"/>
-                                        <constraint firstAttribute="trailing" secondItem="DDv-v2-drr" secondAttribute="trailing" id="vJJ-zs-ccY"/>
+                                        <constraint firstAttribute="height" constant="40" id="stB-6y-MjK"/>
                                     </constraints>
-                                </view>
+                                    <state key="normal" title="ADD">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="handleOkInvite:" destination="-1" eventType="touchUpInside" id="TmR-hB-n6C"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="mE0-GF-ItE" firstAttribute="top" secondItem="tby-Oq-WSs" secondAttribute="bottom" constant="8" id="2dT-c3-KW5"/>
                                 <constraint firstItem="mE0-GF-ItE" firstAttribute="leading" secondItem="YNN-Cw-mnI" secondAttribute="leading" constant="8" id="3hp-AM-QIG"/>
-                                <constraint firstItem="iQn-1I-5GN" firstAttribute="centerX" secondItem="YNN-Cw-mnI" secondAttribute="centerX" id="A6b-T6-Qy3"/>
-                                <constraint firstAttribute="bottom" secondItem="iQn-1I-5GN" secondAttribute="bottom" id="Bx1-tp-JLp"/>
+                                <constraint firstAttribute="trailing" secondItem="y2n-ug-Drh" secondAttribute="trailing" id="3rL-FU-Sws"/>
                                 <constraint firstAttribute="trailing" secondItem="mE0-GF-ItE" secondAttribute="trailing" constant="15" id="DEt-Nf-uM7"/>
                                 <constraint firstItem="tby-Oq-WSs" firstAttribute="top" secondItem="chA-RH-kos" secondAttribute="bottom" id="Eet-13-PWi"/>
                                 <constraint firstItem="wf7-J9-v4b" firstAttribute="leading" secondItem="YNN-Cw-mnI" secondAttribute="leading" constant="8" id="GfF-OT-Vgn"/>
+                                <constraint firstAttribute="bottom" secondItem="y2n-ug-Drh" secondAttribute="bottom" id="LJo-a8-5lz"/>
                                 <constraint firstItem="wf7-J9-v4b" firstAttribute="top" secondItem="mE0-GF-ItE" secondAttribute="bottom" constant="8" id="Y5b-mc-01Q"/>
                                 <constraint firstItem="N49-8Q-blO" firstAttribute="leading" secondItem="wf7-J9-v4b" secondAttribute="trailing" constant="15" id="cIf-2H-5ay"/>
                                 <constraint firstAttribute="width" constant="300" id="cL3-cr-bBx"/>
                                 <constraint firstItem="N49-8Q-blO" firstAttribute="trailing" secondItem="mE0-GF-ItE" secondAttribute="trailing" id="dGL-f4-6zr"/>
+                                <constraint firstItem="y2n-ug-Drh" firstAttribute="leading" secondItem="YNN-Cw-mnI" secondAttribute="leading" id="fR1-HP-ubi"/>
                                 <constraint firstItem="N49-8Q-blO" firstAttribute="top" secondItem="wf7-J9-v4b" secondAttribute="top" id="gWe-uh-Odd"/>
                                 <constraint firstAttribute="height" constant="250" id="jQa-l3-w0Z"/>
                                 <constraint firstItem="chA-RH-kos" firstAttribute="leading" secondItem="YNN-Cw-mnI" secondAttribute="leading" id="kcu-M6-54y"/>
@@ -455,5 +444,6 @@
     </objects>
     <resources>
         <image name="2.more" width="17" height="17"/>
+        <image name="close" width="64" height="64"/>
     </resources>
 </document>
