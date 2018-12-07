@@ -11,7 +11,9 @@ import SocketIO
 import PDFGenerator
 
 class SubContentViewController: AppViewController {
+    @IBOutlet var searchTextField: UITextField!
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var searchTypeView: UIView!
     //MARK: Value - preview
     @IBOutlet var preview: UIView!
     @IBOutlet var previewTextView: UITextView!
@@ -30,6 +32,9 @@ class SubContentViewController: AppViewController {
     var meetingId: Int = 0
     let manager = SocketManager(socketURL: URL(string: FDefined.SocketUrl)!, config: [.log(true)])
     
+    var outputSubContents: [SubContentModel] = []
+    
+    @IBOutlet var typeSearchLabel: UILabel!
     var keyTime = "12/12/2018"
     var keyTitle = ""
     let keyAddress = "A17 Ta Quang Buu"
@@ -42,12 +47,22 @@ class SubContentViewController: AppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fillTextField.delegate = self
+        self.searchTextField.delegate = self
+        self.searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         self.moreView.isHidden = true
         self.moreView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapBackgroundWhenClickMore)))
+        
+        typeSearchLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToSeachType)))
+        typeSearchLabel.isUserInteractionEnabled = true
         
         fillTextField.addTarget(self, action: #selector(touchToTextField), for: .touchDown)
         self.navigationController?.isNavigationBarHidden = true
         subContentController = ControllerFactory.createController(type: SubContentController.self, for: self) as? SubContentController
+        subContentTableView.separatorStyle = .none
+        self.searchTypeView.isHidden = true
+        self.typeSearchLabel.text = "Author"
+        self.searchTypeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapHidenSearchView)))
+        self.searchTypeView.isUserInteractionEnabled = true
         initComponent()
         configureSocketIO()
         // Do any additional setup after loading the view.
@@ -99,6 +114,75 @@ class SubContentViewController: AppViewController {
         }
         
         
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if textField == searchTextField {
+            if textField.text == "" {
+                self.outputSubContents = self.subContentController.contents
+                self.subContentTableView.reloadData()
+            } else {
+                self.filterDataBy(type: typeSearchLabel.text ?? "", keySearch: textField.text ?? "")
+            }
+            
+        }
+    }
+    
+    func convertDate(date: String) -> String {
+        guard date != "" else {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        var someDate = dateFormatter.date(from: date)
+        if someDate == nil {
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ssZ"
+            someDate = dateFormatter.date(from: date)
+        }
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.dateFormat = "HH:mm:ss"
+        let strDay = dateFormatter2.string(from: someDate!)
+        let dateInfo = "\(strDay)"
+        
+        return dateInfo
+    }
+    
+    func getDate(date: String) -> String {
+        guard date != "" else {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        var someDate = dateFormatter.date(from: date)
+        if someDate == nil {
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ssZ"
+            someDate = dateFormatter.date(from: date)
+        }
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.dateFormat = "MMM"
+        let strMonth = dateFormatter2.string(from: someDate!)
+        dateFormatter2.dateFormat = "dd"
+        let strYear = dateFormatter2.string(from: someDate!)
+        let dateInfo = "\(strYear) \(strMonth)"
+        
+        return dateInfo
+    }
+    
+    func filterDataBy(type: String , keySearch: String) {
+        if type == "Author" {
+            self.outputSubContents = self.subContentController.contents.filter { $0.author.lowercased().range(of: keySearch.lowercased()) != nil }
+        } else if type == "Content" {
+            self.outputSubContents = self.subContentController.contents.filter { $0.content.lowercased().range(of: keySearch.lowercased()) != nil }
+            
+        } else if type == "Time" {
+            self.outputSubContents = self.subContentController.contents.filter {
+                let string = "\(getDate(date: $0.startTime)) From \(convertDate(date: $0.startTime)) To \(convertDate(date: $0.endTime))"
+                return string.lowercased().range(of: keySearch.lowercased()) != nil
+                 }
+        }
+        self.subContentTableView.reloadData()
     }
     
     @IBAction func exportPDFAction(_ sender: Any) {
@@ -156,6 +240,7 @@ class SubContentViewController: AppViewController {
         SocketIOManager.sharedInstance.socketIOClient.connect()
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         SocketIOManager.sharedInstance.socketIOClient.disconnect()
@@ -189,9 +274,16 @@ class SubContentViewController: AppViewController {
         self.emailText.delegate = self
     }
     
+    func estimateFrameForText(text: String) -> CGRect {
+        let size = CGSize(width: SCREEN_WIDTH - 82, height: 1000)
+        let options = NSStringDrawingOptions.usesLineFragmentOrigin
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
+    }
+    
     override func update(_ command: Command, data: Any?) {
         switch command {
         case .SubContent_gotData:
+                self.outputSubContents = self.subContentController.contents
                 self.subContentTableView.reloadData()
                 self.preview.isHidden = true
                 self.isRequesting = false
@@ -288,19 +380,44 @@ class SubContentViewController: AppViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.string(from: date)
     }
+    
+    @IBAction func authorTypeAction(_ sender: Any) {
+        self.searchTypeView.isHidden = true
+        self.typeSearchLabel.text = "Author"
+    }
+    
+    @IBAction func contentTypeAction(_ sender: Any) {
+        self.searchTypeView.isHidden = true
+        self.typeSearchLabel.text = "Content"
+    }
+    
+    @IBAction func timeTypeAction(_ sender: Any) {
+        self.searchTypeView.isHidden = true
+        self.typeSearchLabel.text = "Time"
+    }
+    
+    @objc func tapToSeachType() {
+        self.searchTypeView.isHidden = false
+    }
+    
+    @objc func tapHidenSearchView() {
+        self.searchTypeView.isHidden = true
+    }
+    
+    
 }
 
 extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.subContentController.contents.count
+        return self.outputSubContents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SubContentCell.loadCell(tableView) as! SubContentCell
-        cell.subContent = self.subContentController.contents[indexPath.row]
+        cell.subContent = self.outputSubContents[indexPath.row]
         cell.updatedText = { [weak self] text in
             guard let this = self else { return }
-            let subcontent = this.subContentController.contents[indexPath.row]
+            let subcontent = this.outputSubContents[indexPath.row]
             SocketIOManager.sharedInstance.socketIOClient.emit("edit_subcontent", ["user_id": subcontent.userId, "meeting_id": subcontent.meetingId, "subcontent": ["id": subcontent.subId, "author": subcontent.author, "content": text, "start_time": subcontent.startTime, "end_time": subcontent.endTime]])
 //            (this.subContentController.contents[indexPath.row]).content = text
 //            this.subContentController.updateText(meetingId: this.meetingId, index: indexPath.row)
@@ -309,11 +426,13 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
+        let submodel = self.outputSubContents[indexPath.row]
+        let height = CGFloat(self.estimateFrameForText(text: submodel.content).height + 63)
+        return height >= 95 ? height : 95
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let subContent = self.subContentController.contents[indexPath.row]
+        let subContent = self.outputSubContents[indexPath.row]
         guard subContent.flag == 1 else {
             return
         }
@@ -335,29 +454,9 @@ extension SubContentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             print("Deleted")
-            let subContent = self.subContentController.contents[indexPath.row]
+            let subContent = self.outputSubContents[indexPath.row]
             SocketIOManager.sharedInstance.socketIOClient.emit("delete_subcontent", ["user_id": subContent.userId, "meeting_id": subContent.meetingId, "subcontent": ["id": subContent.subId, "author": subContent.author, "content": subContent.content, "start_time": subContent.startTime, "end_time": subContent.endTime]])
         }
-    }
-    
-    func convertDate(date: String) -> String {
-        guard date != "" else {
-            return ""
-        }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        var someDate = dateFormatter.date(from: date)
-        if someDate == nil {
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.ssZ"
-            someDate = dateFormatter.date(from: date)
-        }
-        let dateFormatter2 = DateFormatter()
-        dateFormatter2.dateFormat = "HH:mm:ss"
-        let strDay = dateFormatter2.string(from: someDate!)
-        let dateInfo = "\(strDay)"
-        
-        return dateInfo
     }
     
     @objc func touchToTextField( textField: UITextField) {

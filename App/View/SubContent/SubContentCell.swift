@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SubContentCell: AppTableViewCell {
     var updatedText: ((_ text: String) -> ())?
+    @IBOutlet var avtarView: UIView!
+    @IBOutlet var bubbleView: UIView!
+    @IBOutlet var avtImage: UIImageView!
     
     @IBOutlet var authorName: UILabel!
     
@@ -20,9 +24,13 @@ class SubContentCell: AppTableViewCell {
     
     var subContent: SubContentModel! {
         didSet {
-            self.authorName.text = "By \(subContent.author)"
+            self.authorName.text = subContent.author
             self.createTime.text = "\(getDate(date: subContent.startTime)) From \(convertDate(date: subContent.startTime)) To \(convertDate(date: subContent.endTime))"
             self.content.text = subContent.content
+            let avtUrl = "https://ui-avatars.com/api/?name="
+            let dataURL = "\(avtUrl) \(subContent.author)"
+            let text = dataURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            self.avtImage.kf.setImage(with: URL(string: text!))
             DispatchQueue.main.async {
                 if self.subContent.flag == 1 {
 //                    self.content.isEditable = false
@@ -42,11 +50,12 @@ class SubContentCell: AppTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         content.delegate = self
+        content.textColor = .white
         self.selectionStyle = .none
-        content.layer.masksToBounds = true
-        content.layer.borderWidth = 1
-        content.layer.borderColor = UIColor.groupTableViewBackground.cgColor
-        content.layer.cornerRadius = 4
+        bubbleView.layer.masksToBounds = true
+        bubbleView.layer.cornerRadius = 8
+        avtarView.layer.masksToBounds = true
+        avtarView.layer.cornerRadius = 25
         // Initialization code
     }
     
@@ -99,9 +108,11 @@ class SubContentCell: AppTableViewCell {
 
 extension SubContentCell: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
+        
         if let block = updatedText {
             block(content.text)
         }
         content.resignFirstResponder()
     }
+   
 }

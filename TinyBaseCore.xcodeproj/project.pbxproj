@@ -89,6 +89,9 @@
 		7E7BA51A21AE89D50018DC02 /* template.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7E7BA51921AE89D50018DC02 /* template.txt */; };
 		7E7BA51E21AE8B090018DC02 /* PDFPreViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7BA51C21AE8B090018DC02 /* PDFPreViewVC.swift */; };
 		7E7BA51F21AE8B090018DC02 /* PDFPreViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E7BA51D21AE8B090018DC02 /* PDFPreViewVC.xib */; };
+		7E8CEA1821BA79E000374F69 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8CEA1721BA79E000374F69 /* SearchTableView.swift */; };
+		7E8CEA1B21BA7A2F00374F69 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8CEA1921BA7A2F00374F69 /* SearchTableViewCell.swift */; };
+		7E8CEA1C21BA7A2F00374F69 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8CEA1A21BA7A2F00374F69 /* SearchTableViewCell.xib */; };
 		7E9279C9215FD90700089EFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9279C8215FD90700089EFD /* AppDelegate.swift */; };
 		7E9279CE215FD90700089EFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E9279CC215FD90700089EFD /* Main.storyboard */; };
 		7E9279D0215FD90900089EFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E9279CF215FD90900089EFD /* Assets.xcassets */; };
@@ -205,6 +208,9 @@
 		7E7BA51921AE89D50018DC02 /* template.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = template.txt; sourceTree = "<group>"; };
 		7E7BA51C21AE8B090018DC02 /* PDFPreViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFPreViewVC.swift; sourceTree = "<group>"; };
 		7E7BA51D21AE8B090018DC02 /* PDFPreViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFPreViewVC.xib; sourceTree = "<group>"; };
+		7E8CEA1721BA79E000374F69 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
+		7E8CEA1921BA7A2F00374F69 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		7E8CEA1A21BA7A2F00374F69 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		7E9279C5215FD90700089EFD /* TinyBaseCore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyBaseCore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9279C8215FD90700089EFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E9279CD215FD90700089EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -394,6 +400,9 @@
 				7E388F77218CEC8E0081BDDB /* SubContentCell.swift */,
 				7E388F78218CEC8E0081BDDB /* SubContentCell.xib */,
 				7E47092721A7E02200C541EA /* AppFoldingCell.swift */,
+				7E8CEA1721BA79E000374F69 /* SearchTableView.swift */,
+				7E8CEA1921BA7A2F00374F69 /* SearchTableViewCell.swift */,
+				7E8CEA1A21BA7A2F00374F69 /* SearchTableViewCell.xib */,
 			);
 			path = SubContent;
 			sourceTree = "<group>";
@@ -803,6 +812,7 @@
 				7EB4EBB221A9151C005B35C6 /* ResolveTableViewCell.xib in Resources */,
 				7E27747821AA5E5E00B8C74D /* TopRegisterCell.xib in Resources */,
 				7E2A9E95218ACEC70054D409 /* LoginCell.xib in Resources */,
+				7E8CEA1C21BA7A2F00374F69 /* SearchTableViewCell.xib in Resources */,
 				7E2F641221A574D600A9547A /* ImportViewController.xib in Resources */,
 				7EB4EBAD21A90FD6005B35C6 /* ResolveConfligViewController.xib in Resources */,
 			);
@@ -939,6 +949,7 @@
 				7E927A2A215FDCEF00089EFD /* AppTableView.swift in Sources */,
 				7E388FD6218CF2F50081BDDB /* BaseCLCell.swift in Sources */,
 				7E388FCD218CF2F50081BDDB /* BLog.swift in Sources */,
+				7E8CEA1821BA79E000374F69 /* SearchTableView.swift in Sources */,
 				7E388F63218CDE940081BDDB /* MeetingModel.swift in Sources */,
 				7E9279C9215FD90700089EFD /* AppDelegate.swift in Sources */,
 				7E2F641121A574D600A9547A /* ImportViewController.swift in Sources */,
@@ -952,6 +963,7 @@
 				7E388FD4218CF2F50081BDDB /* BaseService.swift in Sources */,
 				7E388F79218CEC8E0081BDDB /* SubContentCell.swift in Sources */,
 				7E388F73218CE7910081BDDB /* SubContentModel.swift in Sources */,
+				7E8CEA1B21BA7A2F00374F69 /* SearchTableViewCell.swift in Sources */,
 				7E0F1D2321AAA87A00989E63 /* HistoryViewController.swift in Sources */,
 				7E3ABCB621626A1F0033BB60 /* AppService.swift in Sources */,
 				7E2A9E94218ACEC70054D409 /* TopLoginCell.swift in Sources */,
