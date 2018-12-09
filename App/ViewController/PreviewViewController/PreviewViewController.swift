@@ -25,6 +25,16 @@ class PreviewViewController: AppViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        SocketIOManager.sharedInstance.socketIOClient.connect()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SocketIOManager.sharedInstance.socketIOClient.disconnect()
+    }
+    
     func initComponent() {
         initTableView()
         registerCell()
